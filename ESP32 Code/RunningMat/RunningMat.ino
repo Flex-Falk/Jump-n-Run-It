@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
 //Pins for the different mats
-#define LEFT_MAT       36                     // left mat (aka VN pin)
+#define LEFT_MAT       39                     // left mat (aka VN pin)
 #define MIDDLE_MAT     34                     // middle mat
 #define RIGHT_MAT      35                     // right mat
 
@@ -62,27 +62,27 @@ void loop() {
 
   if ((millis() - lastDebounceTime_Left) > DEBOUNCE_TIME) {           // whatever the reading is at, it's been there for longer than the debounce delay, so take it as the actual current state:
     if(lastSteadyState_Left == HIGH && currentState_Left == LOW)      // if the mat state has changed:
-      Serial.println("Left:1");
+      Serial.print("Left:1");
     else if(lastSteadyState_Left == LOW && currentState_Left == HIGH)
-      Serial.println("Left:0");
+      Serial.print("Left:0");
 
     lastSteadyState_Left = currentState_Left;                         // save the the last steady state
   }
 
   if ((millis() - lastDebounceTime_Middle) > DEBOUNCE_TIME) {         // whatever the reading is at, it's been there for longer than the debounce delay, so take it as the actual current state:
     if(lastSteadyState_Middle == HIGH && currentState_Middle == LOW)  // if the mat state has changed:
-      Serial.println("Middle:1");
+      Serial.print("Middle:1");
     else if(lastSteadyState_Middle == LOW && currentState_Middle == HIGH)
-      Serial.println("Middle:0");
+      Serial.print("Middle:0");
 
     lastSteadyState_Middle = currentState_Middle;                     // save the the last steady state
   }
 
   if ((millis() - lastDebounceTime_Right) > DEBOUNCE_TIME) {          // whatever the reading is at, it's been there for longer than the debounce delay, so take it as the actual current state:
     if(lastSteadyState_Right == HIGH && currentState_Right == LOW)    // if the mat state has changed:
-      Serial.println("Right:1");
+      Serial.print("Right:1");
     else if(lastSteadyState_Right == LOW && currentState_Right == HIGH)
-      Serial.println("Right:0");
+      Serial.print("Right:0");
 
     lastSteadyState_Right = currentState_Right;                       // save the the last steady state
   }
