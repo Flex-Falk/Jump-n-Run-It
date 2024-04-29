@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,10 +15,53 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float gravity = -20;
 
+
+    private PortDataAccessor portDataAccessor;
+    private EventHandler<DataArrivedEventArgs> onJump, onRight, onLeft;
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        portDataAccessor = PortDataAccessor.Instance;
+
+        onJump = (object sender, DataArrivedEventArgs args) =>
+        {
+            Debug.Log(String.Format("Key: {0}, Value: {1}", args.Key, args.Value));
+
+            if (controller.isGrounded)
+            {
+                Jump();
+            }
+        };
+
+        onLeft = (object sender, DataArrivedEventArgs args) =>
+        {
+            Debug.Log(String.Format("Key: {0}, Value: {1}", args.Key, args.Value));
+
+            desiredLane--;
+            if (desiredLane == -1)
+            {
+                desiredLane = 0;
+            }
+        };
+
+        onRight = (object sender, DataArrivedEventArgs args) =>
+        {
+            Debug.Log(String.Format("Key: {0}, Value: {1}", args.Key, args.Value));
+
+            desiredLane++;
+            if (desiredLane == 3)
+            {
+                desiredLane = 2;
+            }
+        };
+
+        // Note: you can register multiple handler for the same key
+        portDataAccessor.EventDataHook.registerDataHook("jump", onJump);
+        portDataAccessor.EventDataHook.registerDataHook("left", onLeft);      
+        portDataAccessor.EventDataHook.registerDataHook("right", onRight);
     }
 
     // Update is called once per frame
@@ -28,39 +71,16 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(direction * Time.deltaTime);
 
-        if (controller.isGrounded) 
+        // skip gravity for one frame to match behaviour in previous version
+        if (isLastFrameJumped)
         {
-            //direction.y = -1;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                Jump();
-            }
+            isLastFrameJumped = false;
         }
         else
         {
-            direction.y += gravity * Time.deltaTime;
+            direction.y += gravity * Time.deltaTime;    
         }
-
-
-        //Gather the inputs on what lane we should be
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            desiredLane++;
-            if(desiredLane == 3)
-            {
-                desiredLane = 2;
-            }
-        }
-
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            desiredLane--;
-            if(desiredLane == -1)
-            {
-                desiredLane = 0;
-            }
-        }
+        
 
         //Calculate where we should be in the future
 
@@ -77,9 +97,17 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, 80 * Time.fixedDeltaTime);
     }
 
-
+    private bool isLastFrameJumped = false;
     private void Jump()
     {
+        isLastFrameJumped = true;
         direction.y = jumpForce;
+    }
+
+    private void OnDestroy()
+    {
+        portDataAccessor.EventDataHook.unregisterDataHook("jump", onJump);
+        portDataAccessor.EventDataHook.unregisterDataHook("left", onLeft);
+        portDataAccessor.EventDataHook.unregisterDataHook("right", onRight);
     }
 }
