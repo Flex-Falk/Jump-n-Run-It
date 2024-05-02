@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction;
     public float forwardSpeed;
 
-    private int desiredLane = 1; //0:left 1:middle 2:right
+    private float desiredLane = 1; //0:left 1:middle 2:right
     public float laneDistance = 4; //the distance between two lanes
 
     public float jumpForce;
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         if (controller.isGrounded) 
         {
             //direction.y = -1;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (InputHandler.JumpInput())
             {
                 Jump();
             }
@@ -43,8 +43,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Gather the inputs on what lane we should be
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        /*if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             desiredLane++;
             if(desiredLane == 3)
@@ -60,7 +59,21 @@ public class PlayerController : MonoBehaviour
             {
                 desiredLane = 0;
             }
+        }*/
+        if (InputHandler.ChangeDirectionInput())
+        {
+            desiredLane = desiredLane + InputHandler.DirectionInput();
+    
+            //Fixes out of bound issues
+            if (desiredLane == 3)
+            {
+                desiredLane = 2;
+            }else if (desiredLane == -1)
+            {
+                desiredLane = 0;
+            }
         }
+
 
         //Calculate where we should be in the future
 
