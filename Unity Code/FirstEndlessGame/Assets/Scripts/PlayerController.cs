@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,42 +6,78 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private CharacterController controller;
-    private Vector3 direction;
-    public float forwardSpeed;
-
+    //private CharacterController controller;
+    //private Vector3 direction;
+    private Rigidbody rb;
+    private bool isGrounded = true;
+    [SerializeField]
+    private float maxSpeed = 6;
+    [SerializeField]
+    private float initialSpeed = 3f;
+    private float currentSpeed = 0;
     private float desiredLane = 1; //0:left 1:middle 2:right
     public float laneDistance = 4; //the distance between two lanes
+    private Vector3 velocity = Vector3.zero;
+    [SerializeField]
+    private float jumpForce = 0.5f;
+    //public float gravity = -20;
 
-    public float jumpForce;
-    public float gravity = -20;
+    public static event Action<bool> isGameOver;
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
+        //controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        direction.z = forwardSpeed;
-
-        controller.Move(direction * Time.deltaTime);
-
-        if (controller.isGrounded) 
+        Vector3 globalpos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        
+        if (InputHandler.PlayerRunInput())
         {
-            //direction.y = -1;
-            if (InputHandler.JumpInput())
+            if (currentSpeed == 0)
             {
-                Jump();
+                currentSpeed += initialSpeed; 
             }
+            else
+            {
+                currentSpeed += 1f;
+                currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
+            }
+
+            //direction.z = currentSpeed*Time.deltaTime;
+            desiredLane = InputHandler.LaneInput();
         }
         else
         {
-            direction.y += gravity * Time.deltaTime;
+            currentSpeed -= 0.01f;
+            if (currentSpeed <= 0.01)
+                currentSpeed = 0;
+            //direction.z = currentSpeed*Time.deltaTime;
+            
         }
 
+        if (InputHandler.JumpInput())
+        {
+            Debug.Log(isGrounded);    
+            if (isGrounded)
+            {
+                Jump();
+                isGrounded = false;
+            }
+         }
+
+        /*else
+        {
+            //direction.y += gravity * Time.deltaTime;
+        }*/
+        //controller.Move(direction);
+        globalpos.z += currentSpeed;
+        //Debug.Log(currentSpeed);
+        transform.position = Vector3.SmoothDamp(transform.position, globalpos, ref velocity, 0.3f);
 
         //Gather the inputs on what lane we should be
         /*if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -60,19 +97,7 @@ public class PlayerController : MonoBehaviour
                 desiredLane = 0;
             }
         }*/
-        if (InputHandler.ChangeDirectionInput())
-        {
-            desiredLane = desiredLane + InputHandler.DirectionInput();
-    
-            //Fixes out of bound issues
-            if (desiredLane == 3)
-            {
-                desiredLane = 2;
-            }else if (desiredLane == -1)
-            {
-                desiredLane = 0;
-            }
-        }
+        
 
 
         //Calculate where we should be in the future
@@ -89,18 +114,28 @@ public class PlayerController : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, 80 * Time.fixedDeltaTime);
     }
-
+    
 
     private void Jump()
     {
-        direction.y = jumpForce;
+        rb.velocity += jumpForce * Vector3.up;
     }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnCollisionStay()
+    {
+         isGrounded = true;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Obstacle")
+        {
+            isGameOver?.Invoke(true);
+        }
+    }
+    /*private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if ((hit.transform.tag == "Obstacle"))
         {
-            PlayerManager.gameOver = true;
+            isGameOver?.Invoke(true);
         }
-    }
+    }*/
 }

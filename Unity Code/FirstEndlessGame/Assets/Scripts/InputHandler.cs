@@ -9,13 +9,26 @@ public static class InputHandler
     {
         return Input.GetButton("Jump");
     }
-    public static Boolean ChangeDirectionInput()
+    public static Boolean PlayerRunInput()
     {
-        return Input.GetButtonDown("Horizontal");
+        return (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"));
     }
-    public static float DirectionInput()
+    //returns the LaneNumber, the Player
+    public static float LaneInput()
     {
-        return Input.GetAxisRaw("Horizontal");
+        float lane = Input.GetAxisRaw("Horizontal");
+        float middleLane = 1;
+        if (lane == -1)
+        {
+            return 0;
+        }
+        else if (lane == 1)
+        {
+            return 2;
+        }
+        return middleLane;
+
+
     }
     public static Boolean RunInput() 
     { 
