@@ -24,11 +24,34 @@ public class PlayerController : MonoBehaviour
 
     public static event Action<bool> isGameOver;
 
+    private EventDataHook eventDataHook;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         //controller = GetComponent<CharacterController>();
+
+        if(PortDataAccessor.Instance != null && PortDataAccessor.Instance.EventDataHook != null)
+        {
+            eventDataHook = PortDataAccessor.Instance.EventDataHook;
+
+            //example Serial.print("left:1;") , important: no newline
+            eventDataHook.registerDataHook("left", (object sender, DataArrivedEventArgs args) => {
+                runOnLane(float.Parse(args.Key));
+            });
+
+            //example Serial.print("middle:1;") , important: no newline
+            eventDataHook.registerDataHook("middle", (object sender, DataArrivedEventArgs args) => {
+                runOnLane(float.Parse(args.Key));
+            });
+
+            //example Serial.print("right:1;") , important: no newline
+            eventDataHook.registerDataHook("right", (object sender, DataArrivedEventArgs args) => {
+                runOnLane(float.Parse(args.Key));
+            });
+
+        }
     }
 
     // Update is called once per frame
@@ -38,6 +61,8 @@ public class PlayerController : MonoBehaviour
         
         if (InputHandler.PlayerRunInput())
         {
+            runOnLane(InputHandler.LaneInput());
+            /*
             if (currentSpeed == 0)
             {
                 currentSpeed += initialSpeed; 
@@ -50,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
             //direction.z = currentSpeed*Time.deltaTime;
             desiredLane = InputHandler.LaneInput();
+            */
         }
         else
         {
@@ -114,16 +140,33 @@ public class PlayerController : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, 80 * Time.fixedDeltaTime);
     }
-    
+
+    void runOnLane(float lane)
+    {
+        if (currentSpeed == 0)
+        {
+            currentSpeed += initialSpeed;
+        }
+        else
+        {
+            currentSpeed += 1f;
+            currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
+        }
+
+        //direction.z = currentSpeed*Time.deltaTime;
+        desiredLane = lane;
+    }
 
     private void Jump()
     {
         rb.velocity += jumpForce * Vector3.up;
     }
+
     private void OnCollisionStay()
     {
          isGrounded = true;
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Obstacle")
@@ -131,11 +174,14 @@ public class PlayerController : MonoBehaviour
             isGameOver?.Invoke(true);
         }
     }
-    /*private void OnControllerColliderHit(ControllerColliderHit hit)
+
+    /*
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if ((hit.transform.tag == "Obstacle"))
         {
             isGameOver?.Invoke(true);
         }
-    }*/
+    }
+    */
 }
