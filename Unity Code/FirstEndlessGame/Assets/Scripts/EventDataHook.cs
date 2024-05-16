@@ -29,10 +29,12 @@ public class EventDataHook
     {
         if (registerdKeys.Contains(key))
         {
+            Debug.Log(key);
             registerdEvents[key] += callback;
         }
         else
         {
+            Debug.Log(key);
             registerdKeys.Add(key);
             registerdEvents.Add(key, callback);
         }
@@ -46,7 +48,7 @@ public class EventDataHook
         }
         else
         {
-            Debug.LogErrorFormat("Key: [{0}] does not exists.", key);
+            UnityEngine.Debug.LogErrorFormat("Key: [{0}] does not exists.", key);
         }
     }
 
@@ -57,6 +59,7 @@ public class EventDataHook
             int bufferOffset = Port.Read(_internalBuffer, 0, Port.BytesToRead);
 
             contents += new String(_internalBuffer, 0, bufferOffset);
+            Debug.Log(contents);
 
             foreach (KeyValuePair<string, string> pair in NextPair())
             {
@@ -65,6 +68,7 @@ public class EventDataHook
                     //args
                     DataArrivedEventArgs eventArgs = new DataArrivedEventArgs();
                     eventArgs.Key = pair.Key;
+                    Debug.LogFormat("|{0}|", pair.Key);
                     eventArgs.Value = pair.Value;
 
                     // call all attached handler on this event for a given key
@@ -72,7 +76,7 @@ public class EventDataHook
                 }
                 else
                 {
-                    Debug.Log(String.Format("Not registered Key: {0}", pair.Key));
+                    Debug.Log(String.Format("Not registered Key: |{0}|", pair.Key));
                 }
             }
         }

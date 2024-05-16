@@ -24,6 +24,7 @@ public class PortDataAccessor : MonoBehaviour
         else
         {
             Instance = this;
+            EventDataHook = new EventDataHook(null);
         }
     }
 
@@ -55,8 +56,8 @@ public class PortDataAccessor : MonoBehaviour
             Port = new SerialPort();
             Port.BaudRate = Baudrate;
             Port.PortName = PortName;
+            EventDataHook.Port = Port;
             Port.Open();
-            EventDataHook = new(Port);
             return true;
 
         }

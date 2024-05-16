@@ -37,18 +37,18 @@ public class PlayerController : MonoBehaviour
             eventDataHook = PortDataAccessor.Instance.EventDataHook;
 
             //example Serial.print("left:1;") , important: no newline
-            eventDataHook.registerDataHook("left", (object sender, DataArrivedEventArgs args) => {
-                runOnLane(float.Parse(args.Key));
+            eventDataHook.registerDataHook("Left", (object sender, DataArrivedEventArgs args) => {
+                runOnLane(0);
             });
 
             //example Serial.print("middle:1;") , important: no newline
-            eventDataHook.registerDataHook("middle", (object sender, DataArrivedEventArgs args) => {
-                runOnLane(float.Parse(args.Key));
+            eventDataHook.registerDataHook("Middle", (object sender, DataArrivedEventArgs args) => {
+                runOnLane(1);
             });
 
             //example Serial.print("right:1;") , important: no newline
-            eventDataHook.registerDataHook("right", (object sender, DataArrivedEventArgs args) => {
-                runOnLane(float.Parse(args.Key));
+            eventDataHook.registerDataHook("Right", (object sender, DataArrivedEventArgs args) => {
+                runOnLane(2);
             });
 
         }

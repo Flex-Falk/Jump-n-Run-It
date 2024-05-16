@@ -7,7 +7,7 @@
 
 #define DEBOUNCE_TIME    50                                   // the debounce time in millisecond, increase this time if it still chatters
 
-#define PRESS_THRESHOLD   4                                   // Threshold for number of state changes to confirm a press;
+#define PRESS_THRESHOLD   1                                  // Threshold for number of state changes to confirm a press;
                                                               // finetuning:
                                                               // higher: lower sensitivity aka more force for an input
                                                               // lower: higher sensitivity aka less force for an input
@@ -72,7 +72,7 @@ void loop() {
     if(pressCounter_Left >= PRESS_THRESHOLD){                   // If enough presses have been registered during the debouncetime:
       lastSteadyState_Left = currentState_Left;
       pressCounter_Left = 0;                                    // Reset counter after confirmation
-      Serial.print("Left:1");                                   // Register a step
+      Serial.print("Left:1;");                                   // Register a step
     } else{                                                     // Else:
       pressCounter_Left = 0;                                    // Reset without classifying an input
   }
@@ -82,7 +82,7 @@ void loop() {
     if(pressCounter_Middle >= PRESS_THRESHOLD){                 // If enough presses have been registered during the debouncetime:
       lastSteadyState_Middle = currentState_Middle;
       pressCounter_Middle = 0;                                  // Reset counter after confirmation
-      Serial.print("Middle:1");                                 // Register a step
+      Serial.print("Middle:1;");                                 // Register a step
     } else{                                                     // Else:
       pressCounter_Middle = 0;                                  // Reset without classifying an input
     }
@@ -92,9 +92,9 @@ void loop() {
     if(pressCounter_Right >= PRESS_THRESHOLD){                  // If enough presses have been registered during the debouncetime:
       lastSteadyState_Right = currentState_Right;
       pressCounter_Right = 0;                                   // Reset counter after confirmation
-      Serial.print("Right:1");                                  // Register a step
+      Serial.print("Right:1;");                                  // Register a step
     } else{                                                     // Else:
       pressCounter_Right = 0;                                   // Reset without classifying an input
     }
   }
-}
+}}
