@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private float desiredLane = 1; //0:left 1:middle 2:right
     public float laneDistance = 4; //the distance between two lanes
     private Vector3 velocity = Vector3.zero;
+    //private Vector3 eulerAngleVelocity;
     [SerializeField]
     private float jumpForce = 0.5f;
     //public float gravity = -20;
@@ -96,6 +98,12 @@ public class PlayerController : MonoBehaviour
             }
          }
 
+        if (InputHandler.CrouchInput())
+        {
+            //eulerAngleVelocity.Set(0f, 0f, 90);
+            StartCoroutine(Crouch());
+        }
+
         /*else
         {
             //direction.y += gravity * Time.deltaTime;
@@ -160,6 +168,27 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb.velocity += jumpForce * Vector3.up;
+    }
+
+    private IEnumerator Crouch()
+    {
+        //Aktuell gelöst durch Änderung der Höhe
+        var normScale = new Vector3(1f, 1f, 1f);
+        var crouchScale = new Vector3(0.6f, 0.5f, 0.6f);
+        transform.localScale = Vector3.Lerp(transform.localScale, crouchScale, 80 * Time.fixedDeltaTime);
+        yield return new WaitForSeconds(1.5f);
+        transform.localScale = Vector3.Lerp(transform.localScale, normScale, 80 * Time.fixedDeltaTime);
+
+        //Versuch der Rotation um seitliches drunter durch Sliden zu simulieren
+        /*
+        Vector3 vector3 = new Vector3(0f, 2f,  0f);
+        //rb.transform.Rotate(eulerAngleVelocity);
+        transform.Rotate(eulerAngleVelocity);
+        //transform.position += vector3;
+        //transform.rotation = Quaternion.Euler(eulerAngleVelocity);
+        yield return new WaitForSeconds(1.3f);
+        transform.Rotate(-eulerAngleVelocity);
+        //transform.rotation = Quaternion.Euler(-eulerAngleVelocity);*/
     }
 
     private void OnCollisionStay()

@@ -41,7 +41,7 @@ public static class InputHandler
 
     public static bool CrouchInput() 
     {
-        return false;
+        return Input.GetButton("Crouch");
     }
   
 }
