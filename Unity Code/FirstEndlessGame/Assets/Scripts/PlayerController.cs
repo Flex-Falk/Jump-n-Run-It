@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
     //private CharacterController controller;
     //private Vector3 direction;
     private Rigidbody rb;
+    private CapsuleCollider cc;
     private bool isGrounded = true;
+    private bool isCrouching = false;
     [SerializeField]
     private float maxSpeed = 6;
     [SerializeField]
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jumpForce = 0.5f;
     //public float gravity = -20;
+    public Animator animator;
 
     public static event Action<bool> isGameOver;
 
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         //controller = GetComponent<CharacterController>();
+        cc = GetComponent<CapsuleCollider>();
 
         if(PortDataAccessor.Instance != null && PortDataAccessor.Instance.EventDataHook != null)
         {
@@ -54,6 +58,8 @@ public class PlayerController : MonoBehaviour
             });
 
         }
+
+        animator.SetBool("isGameStarted", true);
     }
 
     // Update is called once per frame
@@ -88,6 +94,7 @@ public class PlayerController : MonoBehaviour
             
         }
 
+        animator.SetBool("isJumping", !isGrounded);
         if (InputHandler.JumpInput())
         {
             Debug.Log(isGrounded);    
@@ -98,10 +105,12 @@ public class PlayerController : MonoBehaviour
             }
          }
 
+        animator.SetBool("isCrouching", isCrouching);
         if (InputHandler.CrouchInput())
         {
             //eulerAngleVelocity.Set(0f, 0f, 90);
             StartCoroutine(Crouch());
+            isCrouching = true;
         }
 
         /*else
@@ -173,22 +182,17 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Crouch()
     {
         //Aktuell gelöst durch Änderung der Höhe
-        var normScale = new Vector3(1f, 1f, 1f);
+        cc.height = 1;
+        yield return new WaitForSeconds(1.5f);
+        cc.height = 2;
+        isCrouching = false;
+
+        /*var normScale = new Vector3(1f, 1f, 1f);
         var crouchScale = new Vector3(0.6f, 0.5f, 0.6f);
         transform.localScale = Vector3.Lerp(transform.localScale, crouchScale, 80 * Time.fixedDeltaTime);
         yield return new WaitForSeconds(1.5f);
         transform.localScale = Vector3.Lerp(transform.localScale, normScale, 80 * Time.fixedDeltaTime);
-
-        //Versuch der Rotation um seitliches drunter durch Sliden zu simulieren
-        /*
-        Vector3 vector3 = new Vector3(0f, 2f,  0f);
-        //rb.transform.Rotate(eulerAngleVelocity);
-        transform.Rotate(eulerAngleVelocity);
-        //transform.position += vector3;
-        //transform.rotation = Quaternion.Euler(eulerAngleVelocity);
-        yield return new WaitForSeconds(1.3f);
-        transform.Rotate(-eulerAngleVelocity);
-        //transform.rotation = Quaternion.Euler(-eulerAngleVelocity);*/
+        */
     }
 
     private void OnCollisionStay()
