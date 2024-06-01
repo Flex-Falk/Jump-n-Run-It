@@ -532,6 +532,7 @@ GameObject:
   - component: {fileID: 1714991260}
   - component: {fileID: 1714991259}
   - component: {fileID: 1714991258}
+  - component: {fileID: 1714991261}
   m_Layer: 0
   m_Name: PortDataManager
   m_TagString: Untagged
@@ -546,7 +547,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714991257}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f6ae61988801ba499e52cbc2c84978f, type: 3}
   m_Name: 
@@ -563,7 +564,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714991257}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c6554694aabca643ae066f4a295ff13, type: 3}
   m_Name: 
@@ -584,6 +585,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1714991261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714991257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84daf3004a943db4b852cba3c5b89825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2143012086
 GameObject:
   m_ObjectHideFlags: 0

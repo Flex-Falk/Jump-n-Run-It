@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|e:\\code projects\\physicalcomputinglab\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|e:\\code projects\\physicalcomputinglab\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\bluetoothpipecom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bluetoothpipecom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -22,11 +26,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "BluetoothPipeCom.cs",
+              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\BluetoothPipeCom.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BluetoothPipeCom.cs",
+              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\BluetoothPipeCom.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BluetoothPipeCom.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T13:39:29.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
@@ -38,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PortDataAccessor.cs",
               "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PortDataAccessor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PortDataAccessor.cs",
@@ -46,21 +63,19 @@
               "RelativeToolTip": "Assets\\Scripts\\PortDataAccessor.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:02:17.78Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:02:17.78Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "IMU_Controller_Test.cs",
               "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\IMU_Controller_Test.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\IMU_Controller_Test.cs",
               "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\IMU_Controller_Test.cs",
               "RelativeToolTip": "Assets\\Scripts\\IMU_Controller_Test.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAApwD0AAAA+AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T11:12:44.172Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-21T11:12:44.172Z"
             }
           ]
         }

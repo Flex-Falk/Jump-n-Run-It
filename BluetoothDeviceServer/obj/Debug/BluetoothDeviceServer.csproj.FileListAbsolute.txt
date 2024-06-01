@@ -1,0 +1,7 @@
+E:\Code Projects\PhysicalComputingLab\Jump-n-Run-It\BluetoothDeviceServer\bin\Debug\BluetoothDeviceServer.exe.config
+E:\Code Projects\PhysicalComputingLab\Jump-n-Run-It\BluetoothDeviceServer\bin\Debug\BluetoothDeviceServer.exe
+E:\Code Projects\PhysicalComputingLab\Jump-n-Run-It\BluetoothDeviceServer\bin\Debug\BluetoothDeviceServer.pdb
+E:\Code Projects\PhysicalComputingLab\Jump-n-Run-It\BluetoothDeviceServer\obj\Debug\BluetoothDeviceServer.csproj.AssemblyReference.cache
+E:\Code Projects\PhysicalComputingLab\Jump-n-Run-It\BluetoothDeviceServer\obj\Debug\BluetoothDeviceServer.csproj.CoreCompileInputs.cache
+E:\Code Projects\PhysicalComputingLab\Jump-n-Run-It\BluetoothDeviceServer\obj\Debug\BluetoothDeviceServer.exe
+E:\Code Projects\PhysicalComputingLab\Jump-n-Run-It\BluetoothDeviceServer\obj\Debug\BluetoothDeviceServer.pdb
