@@ -29,12 +29,12 @@ public class EventDataHook
     {
         if (registerdKeys.Contains(key))
         {
-            Debug.Log(key);
+            Debug.LogFormat("Added {1} callback to Key: {0}", key, registerdEvents[key].GetInvocationList().Length);
             registerdEvents[key] += callback;
         }
         else
         {
-            Debug.Log(key);
+            Debug.LogFormat("Added first callback to Key: {0}", key);
             registerdKeys.Add(key);
             registerdEvents.Add(key, callback);
         }
@@ -48,7 +48,7 @@ public class EventDataHook
         }
         else
         {
-            UnityEngine.Debug.LogErrorFormat("Key: [{0}] does not exists.", key);
+            Debug.LogErrorFormat("Key: [{0}] does not exists.", key);
         }
     }
 
@@ -56,10 +56,9 @@ public class EventDataHook
     {
         if (Port != null && Port.IsOpen && Port.BytesToRead > 0)
         {
-            int bufferOffset = Port.Read(_internalBuffer, 0, Port.BytesToRead);
+            int bufferOffset = Port.Read(_internalBuffer, 0, Math.Min(Port.BytesToRead, 4095));
 
             contents += new String(_internalBuffer, 0, bufferOffset);
-            Debug.Log(contents);
 
             foreach (KeyValuePair<string, string> pair in NextPair())
             {
@@ -68,7 +67,6 @@ public class EventDataHook
                     //args
                     DataArrivedEventArgs eventArgs = new DataArrivedEventArgs();
                     eventArgs.Key = pair.Key;
-                    Debug.LogFormat("|{0}|", pair.Key);
                     eventArgs.Value = pair.Value;
 
                     // call all attached handler on this event for a given key
@@ -89,9 +87,18 @@ public class EventDataHook
         {
             string kv = contents.Substring(0, kvIndex);
             int kIndex = kv.IndexOf(':');
-            yield return new KeyValuePair<string, string>(kv.Substring(0, kIndex), kv.Substring(kIndex + 1));
-            contents = contents.Substring(kvIndex + 1); //remove added kv-pair
-            kvIndex = contents.IndexOf(';'); // search or next pair
+            if (kIndex == -1)
+            {
+                yield break;
+            }
+            else
+            {
+                //TODO check if ':' is found, then only the key is partialy ready
+                contents = contents.Substring(kvIndex + 1); //remove added kv-pair
+                yield return new KeyValuePair<string, string>(kv.Substring(0, kIndex), kv.Substring(kIndex + 1));
+                kvIndex = contents.IndexOf(';'); // search or next pair
+
+            }
         }
 
         yield break;
