@@ -17,6 +17,14 @@ public class Events : MonoBehaviour
     private void Start()
     {
         portDataAccessor = PortDataAccessor.Instance;
+
+        // Set the port data to the first value of the dropdown menu, if an ESP32 is connected
+        if (tmp_dropdown != null && tmp_dropdown.options.Count > 1)
+        {
+            //portDataAccessor.PortName = tmp_dropdown.options[1].text;
+            tmp_dropdown.value = 1;
+            HandleApplyPortSettings();
+        }
     }
 
     public void ReplayGame()
