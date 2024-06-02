@@ -36,12 +36,12 @@ public static class InputHandler
     }
     public static bool AttackInput() 
     {
-        return Input.GetButton("Fire1");
+        return Input.GetButtonDown("Fire1");
     }
 
     public static bool CrouchInput() 
     {
-        return Input.GetButton("Crouch");
+        return Input.GetButtonDown("Crouch");
     }
   
 }
