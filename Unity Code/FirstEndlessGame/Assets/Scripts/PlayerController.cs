@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Crouch()
     {
-        //Aktuell gelöst durch Änderung der Höhe
+        //Aktuell gelï¿½st durch ï¿½nderung der Hï¿½he
         cc.height = 1;
         yield return new WaitForSeconds(1.5f);
         cc.height = 2;
@@ -205,6 +205,7 @@ public class PlayerController : MonoBehaviour
         if (collision.transform.tag == "Obstacle")
         {
             isGameOver?.Invoke(true);
+            DisableControls();
         }
     }
 
@@ -217,4 +218,9 @@ public class PlayerController : MonoBehaviour
         }
     }
     */
+
+     public void DisableControls()
+    {
+        this.enabled = false;
+    }
 }
