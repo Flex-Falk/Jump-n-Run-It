@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //private CharacterController controller;
-    //private Vector3 direction;
     private Rigidbody rb;
     private CapsuleCollider cc;
     private bool isGrounded = true;
@@ -24,7 +22,6 @@ public class PlayerController : MonoBehaviour
     //private Vector3 eulerAngleVelocity;
     [SerializeField]
     private float jumpForce = 0.5f;
-    //public float gravity = -20;
     public Animator animator;
 
     private AudioSource audioSource;
@@ -43,8 +40,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
-
-        //controller = GetComponent<CharacterController>();
         cc = GetComponent<CapsuleCollider>();
 
         if(PortDataAccessor.Instance != null && PortDataAccessor.Instance.EventDataHook != null)
@@ -79,20 +74,6 @@ public class PlayerController : MonoBehaviour
         if (InputHandler.PlayerRunInput())
         {
             runOnLane(InputHandler.LaneInput());
-            /*
-            if (currentSpeed == 0)
-            {
-                currentSpeed += initialSpeed; 
-            }
-            else
-            {
-                currentSpeed += 1f;
-                currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
-            }
-
-            //direction.z = currentSpeed*Time.deltaTime;
-            desiredLane = InputHandler.LaneInput();
-            */
         }
         else
         {
@@ -128,30 +109,7 @@ public class PlayerController : MonoBehaviour
         }*/
         //controller.Move(direction);
         globalpos.z += currentSpeed;
-        //Debug.Log(currentSpeed);
         transform.position = Vector3.SmoothDamp(transform.position, globalpos, ref velocity, 0.3f);
-
-        //Gather the inputs on what lane we should be
-        /*if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            desiredLane++;
-            if(desiredLane == 3)
-            {
-                desiredLane = 2;
-            }
-        }
-
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            desiredLane--;
-            if(desiredLane == -1)
-            {
-                desiredLane = 0;
-            }
-        }*/
-        
-
-
         //Calculate where we should be in the future
 
         Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
@@ -193,7 +151,6 @@ public class PlayerController : MonoBehaviour
     {
         //Aktuell gel�st durch �nderung der H�he
         audioSource.PlayOneShot(beginCrouchClip);
-
         cc.height = 1;
         yield return new WaitForSeconds(1.5f);
         cc.height = 2;
@@ -209,7 +166,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay()
     {
-         isGrounded = true;
+        isGrounded = true;
+    }
+    private void OnCollisionExit(Collision collision) 
+    {
+        if (collision.transform.tag == "Ground")
+        {
+            isGrounded = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -220,17 +184,6 @@ public class PlayerController : MonoBehaviour
             DisableControls();
         }
     }
-
-    /*
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if ((hit.transform.tag == "Obstacle"))
-        {
-            isGameOver?.Invoke(true);
-        }
-    }
-    */
-
      public void DisableControls()
     {
         this.enabled = false;

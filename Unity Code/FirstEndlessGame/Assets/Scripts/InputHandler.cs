@@ -7,7 +7,7 @@ public static class InputHandler
 {
     public static Boolean JumpInput()
     {
-        return Input.GetButton("Jump");
+        return Input.GetButtonDown("Jump");
     }
     public static Boolean PlayerRunInput()
     {
