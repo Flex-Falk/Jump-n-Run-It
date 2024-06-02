@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour
     //public float gravity = -20;
     public Animator animator;
 
+    private AudioSource audioSource;
+
+    public AudioClip jumpClip;
+    public AudioClip beginCrouchClip;
+    public AudioClip endCrouchClip;
+    public AudioClip deathClip;
+
     public static event Action<bool> isGameOver;
 
     private EventDataHook eventDataHook;
@@ -35,6 +42,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
+
         //controller = GetComponent<CharacterController>();
         cc = GetComponent<CapsuleCollider>();
 
@@ -177,16 +186,19 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb.velocity += jumpForce * Vector3.up;
+        audioSource.PlayOneShot(jumpClip);
     }
 
     private IEnumerator Crouch()
     {
         //Aktuell gel�st durch �nderung der H�he
+        audioSource.PlayOneShot(beginCrouchClip);
+
         cc.height = 1;
         yield return new WaitForSeconds(1.5f);
         cc.height = 2;
         isCrouching = false;
-
+        audioSource.PlayOneShot(endCrouchClip);
         /*var normScale = new Vector3(1f, 1f, 1f);
         var crouchScale = new Vector3(0.6f, 0.5f, 0.6f);
         transform.localScale = Vector3.Lerp(transform.localScale, crouchScale, 80 * Time.fixedDeltaTime);
@@ -222,5 +234,6 @@ public class PlayerController : MonoBehaviour
      public void DisableControls()
     {
         this.enabled = false;
+        audioSource.PlayOneShot(deathClip);
     }
 }
