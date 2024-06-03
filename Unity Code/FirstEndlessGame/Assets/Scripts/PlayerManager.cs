@@ -13,6 +13,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject gameOverPanel;
     public TMP_Dropdown tmp_dropdown;
 
+    public static int numberOfCoins;
+    public TextMeshProUGUI coinsText;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -35,6 +38,8 @@ public class PlayerManager : MonoBehaviour
         {
             tmp_dropdown.options.Add(new TMP_Dropdown.OptionData(availablePortName));
         }
+
+        numberOfCoins = 0;
     }
 
     private void IsGameOver(bool value)
@@ -47,4 +52,9 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnEnable() => PlayerController.isGameOver += IsGameOver;
     private void OnDisable() => PlayerController.isGameOver -= IsGameOver;
+
+    private void Update()
+    {
+        coinsText.text = "Coins: " + numberOfCoins; 
+    }
 }
