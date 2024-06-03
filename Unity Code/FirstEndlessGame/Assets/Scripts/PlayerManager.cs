@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     public TMP_Dropdown tmp_dropdown;
     public static int numberOfCoins;
     public TextMeshProUGUI coinsText;
+    public static bool speedPowerUp;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         numberOfCoins = 0;
+        speedPowerUp = false;
         Time.timeScale = 1.0f;
         gameOverPanel.SetActive(false);
 
