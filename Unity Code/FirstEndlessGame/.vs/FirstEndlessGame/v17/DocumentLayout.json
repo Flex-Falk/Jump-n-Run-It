@@ -1,18 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\",
+  "WorkspaceRootPath": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|e:\\code projects\\physicalcomputinglab\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|c:\\users\\lena\\onedrive\\dokumente\\github\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|c:\\users\\lena\\onedrive\\dokumente\\github\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|c:\\users\\lena\\onedrive\\dokumente\\github\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\portdataaccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\portdataaccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\portdataaccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,40 +30,66 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
-              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAMwJ4AAAAJAAAA",
+              "DocumentIndex": 0,
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerManager.cs",
+              "ToolTip": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerManager.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwCwAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:08:04.168Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PortDataAccessor.cs",
-              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PortDataAccessor.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PortDataAccessor.cs",
-              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PortDataAccessor.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PortDataAccessor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:02:17.78Z",
+              "WhenOpened": "2024-06-03T08:54:12.257Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Coin.cs",
+              "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\Coin.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Coin.cs",
+              "ToolTip": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\Coin.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Coin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T08:51:31.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAMwJ4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:08:04.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PortDataAccessor.cs",
+              "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PortDataAccessor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PortDataAccessor.cs",
+              "ToolTip": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PortDataAccessor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PortDataAccessor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:02:17.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "IMU_Controller_Test.cs",
-              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\IMU_Controller_Test.cs",
+              "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\IMU_Controller_Test.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\IMU_Controller_Test.cs",
-              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\IMU_Controller_Test.cs",
+              "ToolTip": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\IMU_Controller_Test.cs",
               "RelativeToolTip": "Assets\\Scripts\\IMU_Controller_Test.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAApwD0AAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

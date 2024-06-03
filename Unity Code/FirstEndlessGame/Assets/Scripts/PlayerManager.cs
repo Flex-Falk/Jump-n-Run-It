@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
     public static bool gameOver;
     public GameObject gameOverPanel;
     public TMP_Dropdown tmp_dropdown;
+    public static int numberOfCoins;
+    public TextMeshProUGUI coinsText;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        numberOfCoins = 0;
         Time.timeScale = 1.0f;
         gameOverPanel.SetActive(false);
 
@@ -35,6 +38,11 @@ public class PlayerManager : MonoBehaviour
         {
             tmp_dropdown.options.Add(new TMP_Dropdown.OptionData(availablePortName));
         }
+    }
+
+    private void Update()
+    {
+        coinsText.text = "Coins: " + numberOfCoins;
     }
 
     private void IsGameOver(bool value)
