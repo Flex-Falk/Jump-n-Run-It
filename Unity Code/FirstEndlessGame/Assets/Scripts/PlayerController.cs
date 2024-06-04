@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        animator.SetBool("isJumping", !isGrounded);
+        
         if (InputHandler.JumpInput())
         {
             Debug.Log(isGrounded);    
@@ -143,6 +143,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        animator.SetBool("isJumping", true);
         rb.velocity += jumpForce * Vector3.up;
         audioSource.PlayOneShot(jumpClip);
     }
@@ -182,6 +183,10 @@ public class PlayerController : MonoBehaviour
         {
             isGameOver?.Invoke(true);
             DisableControls();
+        }
+        if (collision.transform.tag == "Ground")
+        {
+            animator.SetBool("isJumping", false);
         }
     }
      public void DisableControls()
