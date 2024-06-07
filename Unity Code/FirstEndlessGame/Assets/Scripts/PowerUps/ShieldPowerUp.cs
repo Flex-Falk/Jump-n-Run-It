@@ -20,6 +20,7 @@ public class ShieldPowerUp : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            PlayerManager.shieldPowerUp = true;
             Destroy(gameObject);
         }
     }

@@ -181,8 +181,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.tag == "Obstacle")
         {
-            isGameOver?.Invoke(true);
-            DisableControls();
+            if(PlayerManager.shieldPowerUp == false)
+            {
+                isGameOver?.Invoke(true);
+                DisableControls();
+            }else
+            {
+                PlayerManager.shieldPowerUp = false;    
+            }
+            
         }
         if (collision.transform.tag == "Ground")
         {
