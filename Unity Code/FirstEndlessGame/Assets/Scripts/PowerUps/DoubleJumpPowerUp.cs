@@ -20,6 +20,7 @@ public class DoubleJumpPowerUp : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            PlayerManager.doubleJumpPowerUp = true;
             Destroy(gameObject);
         }
     }

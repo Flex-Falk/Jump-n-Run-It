@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI coinsText;
     public static bool speedPowerUp;
     public static bool shieldPowerUp;
+    public static bool doubleJumpPowerUp;
 
     private void Awake()
     {
@@ -33,6 +34,8 @@ public class PlayerManager : MonoBehaviour
     {
         numberOfCoins = 0;
         speedPowerUp = false;
+        shieldPowerUp = false;
+        doubleJumpPowerUp = false;
         Time.timeScale = 1.0f;
         gameOverPanel.SetActive(false);
 
@@ -43,11 +46,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Coin()
     {
+        numberOfCoins++;
         coinsText.text = "Coins: " + numberOfCoins;
-        
     }
+
 
     private void IsGameOver(bool value)
     {

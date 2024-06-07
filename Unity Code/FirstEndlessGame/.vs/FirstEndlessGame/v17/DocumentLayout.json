@@ -3,32 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|c:\\users\\lena\\onedrive\\dokumente\\github\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\powerups\\shieldpowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\powerups\\shieldpowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|c:\\users\\lena\\onedrive\\dokumente\\github\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|c:\\users\\lena\\onedrive\\dokumente\\github\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\powerups\\speedpowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\powerups\\speedpowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\powerups\\doublejumppowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\powerups\\doublejumppowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\portdataaccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\portdataaccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\powerups\\speedpowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\powerups\\speedpowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\powerups\\shieldpowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\powerups\\shieldpowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +42,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "DoubleJumpPowerUp.cs",
+              "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PowerUps\\DoubleJumpPowerUp.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PowerUps\\DoubleJumpPowerUp.cs",
+              "ToolTip": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PowerUps\\DoubleJumpPowerUp.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PowerUps\\DoubleJumpPowerUp.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T10:53:59.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ShieldPowerUp.cs",
               "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PowerUps\\ShieldPowerUp.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PowerUps\\ShieldPowerUp.cs",
@@ -50,12 +67,11 @@
               "RelativeToolTip": "Assets\\Scripts\\PowerUps\\ShieldPowerUp.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-07T10:42:11.275Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-07T10:42:11.275Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "SpeedPowerUp.cs",
               "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PowerUps\\SpeedPowerUp.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PowerUps\\SpeedPowerUp.cs",
@@ -63,50 +79,49 @@
               "RelativeToolTip": "Assets\\Scripts\\PowerUps\\SpeedPowerUp.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-07T10:35:34.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-07T10:35:34.781Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PlayerManager.cs",
               "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerManager.cs",
               "ToolTip": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAkAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwDIAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-03T08:54:12.257Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Coin.cs",
               "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\Coin.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Coin.cs",
               "ToolTip": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\Coin.cs",
               "RelativeToolTip": "Assets\\Scripts\\Coin.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T08:51:31.092Z"
+              "WhenOpened": "2024-06-03T08:51:31.092Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AQIAAJYAAAAAAAAAAAA7wL0AAAA4AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFoAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:08:04.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:08:04.168Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "PortDataAccessor.cs",
               "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PortDataAccessor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PortDataAccessor.cs",
@@ -118,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "IMU_Controller_Test.cs",
               "DocumentMoniker": "C:\\Users\\lena\\OneDrive\\Dokumente\\GitHub\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\IMU_Controller_Test.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\IMU_Controller_Test.cs",

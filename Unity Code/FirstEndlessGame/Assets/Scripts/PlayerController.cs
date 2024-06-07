@@ -88,10 +88,11 @@ public class PlayerController : MonoBehaviour
         if (InputHandler.JumpInput())
         {
             Debug.Log(isGrounded);    
-            if (isGrounded)
+            if (isGrounded | PlayerManager.doubleJumpPowerUp == true)
             {
                 Jump();
                 isGrounded = false;
+                PlayerManager.doubleJumpPowerUp = false;    
             }
          }
 
