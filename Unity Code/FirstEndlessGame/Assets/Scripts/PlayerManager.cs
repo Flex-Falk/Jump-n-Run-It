@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     public TMP_Dropdown tmp_dropdown;
     public static int numberOfCoins;
     public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI shieldText;
     public static bool speedPowerUp;
     public static bool shieldPowerUp;
     public static bool doubleJumpPowerUp;
@@ -50,6 +51,11 @@ public class PlayerManager : MonoBehaviour
     {
         numberOfCoins++;
         coinsText.text = "Coins: " + numberOfCoins;
+    }
+
+    public void Shield()
+    {
+        shieldText.text = "Shield: " + shieldPowerUp;
     }
 
 

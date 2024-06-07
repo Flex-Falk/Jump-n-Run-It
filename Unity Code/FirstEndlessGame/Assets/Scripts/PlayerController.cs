@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float initialSpeed = 3f;
     private float currentSpeed = 0;
+    private float speedUp = 10f;
     private float desiredLane = 1; //0:left 1:middle 2:right
     public float laneDistance = 4; //the distance between two lanes
     private Vector3 velocity = Vector3.zero;
@@ -134,8 +135,19 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            currentSpeed += 1f;
-            currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
+            if (PlayerManager.speedPowerUp)
+            {
+                currentSpeed += speedUp;
+                PlayerManager.speedPowerUp = false;
+                currentSpeed = Mathf.Min(currentSpeed, speedUp);
+            }
+            else
+            {
+                currentSpeed += 1f;
+                currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
+            }
+            
+            
         }
 
         //direction.z = currentSpeed*Time.deltaTime;
@@ -188,7 +200,8 @@ public class PlayerController : MonoBehaviour
                 DisableControls();
             }else
             {
-                PlayerManager.shieldPowerUp = false;    
+                PlayerManager.shieldPowerUp = false;
+                PlayerManager.Instance.Shield();
             }
             
         }
