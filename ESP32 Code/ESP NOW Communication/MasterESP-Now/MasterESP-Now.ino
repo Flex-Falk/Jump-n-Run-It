@@ -5,41 +5,72 @@
  
  
 // REPLACE WITH THE MAC Address of your receiver 
-uint8_t broadcastAddress[] = {0x10, 0x97, 0xBD, 0xD2, 0xD4, 0xEC}; // send to Master
-//uint8_t broadcastAddress[] = {0x58, 0xBF, 0x25, 0x93, 0x39, 0xBC}; // send to IMU-ESP
+//uint8_t broadcastAddress[] = {0x10, 0x97, 0xBD, 0xD2, 0xD4, 0xEC}; // send to Master
+uint8_t broadcastAddress[] = {0x58, 0xBF, 0x25, 0x93, 0x39, 0xBC}; // send to IMU-ESP
 
-typedef struct acceleration_msg {
-  float acclx;
-  float accly;
-  float acclz;
-} acceleration_msg;
+typedef enum msg_type_t {
+  MSG_TYPE_ACCEL_GYRO         = (1),   /**< Gravity + linear acceleration */
+  MSG_TYPE_TEXT               = (2),
+};
 
-acceleration_msg send_accl = {0.0, -9.84, 0.0};
+typedef struct sensor_imu_t{
+  union {
+    /* Accel sensors */
+    struct {
+        float x;
+        float y;
+        float z;
+    };
+    /* Orientation sensors */
+    struct {
+        float yaw;
+        float pitch;
+        float roll;
+    };
+  };
+};
 
-acceleration_msg received_accl = {};
+typedef struct msg_data_t {
+  union {
+    sensor_imu_t accel;
+    sensor_imu_t gyro;
+  };
+  struct {
+    char* msg;
+    int length;
+  };
+};
 
-String success;
+typedef struct msg_any_t {
+  msg_type_t msgType;
+  msg_data_t data;
+};
+
+// msgs between imus
+msg_any_t send_msg = {};
+msg_any_t receive_msg = {};
 
 esp_now_peer_info_t peerInfo;
 
 // Callback when data is sent
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
-  Serial.print("\r\nLast Packet Send Status:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
-  if (status == 0){
-    success = "Delivery Success :)";
-  }
-  else{
-    success = "Delivery Fail :(";
-  }
 }
 
 // Callback when data is received
-void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
-  memcpy(&received_accl, incomingData, sizeof(received_accl));
-  Serial.print("Bytes received: ");
-  Serial.println(len);
-  Serial.printf("x:%f, y:%f, z:%f", received_accl.acclx, received_accl.accly, received_accl.acclz);
+void OnDataRecv(const esp_now_recv_info* info, const uint8_t *incomingData, int len) {
+  memcpy(&receive_msg, incomingData, sizeof(receive_msg));
+  switch(receive_msg.msgType){
+    case(MSG_TYPE_TEXT): {
+      Serial.println(receive_msg.data.msg);
+      break;
+    }
+    case(MSG_TYPE_ACCEL_GYRO): { 
+      Serial.printf("Accel: x:%f, y:%f, z:%f", receive_msg.data.accel.x, receive_msg.data.accel.x, receive_msg.data.accel.x);
+      Serial.printf("Gyro: yaw:%f, pitch:%f, roll:%f", receive_msg.data.gyro.yaw, receive_msg.data.gyro.pitch, receive_msg.data.gyro.roll);
+      break;
+    }
+  }
 }
 
 void setup(){
@@ -73,15 +104,21 @@ void setup(){
   esp_now_register_recv_cb(OnDataRecv);
 
 }
- 
-void loop(){
-  
-  esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &send_accl, sizeof(send_accl)); 
+
+void send_to_imu(struct msg_any_t _send_msg){
+  esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &_send_msg, sizeof(_send_msg)); 
   if (result == ESP_OK) {
     Serial.println("Sent with success");
   }
   else {
     Serial.println("Error sending the data");
   }
-  delay(1000);
 }
+ 
+void loop(){
+
+}
+
+
+
+
