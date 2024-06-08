@@ -25,12 +25,19 @@ public class PlayerController : MonoBehaviour
     private float jumpForce = 0.5f;
     public Animator animator;
 
+    public GameObject attackArea = default;
+    private bool isAttacking = false;
+    public float timeToAttack = 1f;
+    private float timer = 0f;
+
     private AudioSource audioSource;
 
     public AudioClip jumpClip;
     public AudioClip beginCrouchClip;
     public AudioClip endCrouchClip;
     public AudioClip deathClip;
+    public AudioClip attackClip;
+
 
     public static event Action<bool> isGameOver;
 
@@ -42,6 +49,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         cc = GetComponent<CapsuleCollider>();
+
+        //attackArea = transform.GetChild(0);
 
         if(PortDataAccessor.Instance != null && PortDataAccessor.Instance.EventDataHook != null)
         {
@@ -103,6 +112,20 @@ public class PlayerController : MonoBehaviour
             //eulerAngleVelocity.Set(0f, 0f, 90);
             StartCoroutine(Crouch());
             isCrouching = true;
+        }
+
+        if(InputHandler.AttackInput()){
+            Attack();
+        }
+        
+        if(isAttacking){
+            timer += Time.deltaTime;
+
+            if(timer >= timeToAttack){
+                timer = 0;
+                isAttacking = false;
+                attackArea.SetActive(isAttacking);
+            }
         }
 
         /*else
@@ -214,5 +237,11 @@ public class PlayerController : MonoBehaviour
     {
         this.enabled = false;
         audioSource.PlayOneShot(deathClip);
+    }
+
+    void Attack(){
+        isAttacking = true;
+        attackArea.SetActive(isAttacking);
+        audioSource.PlayOneShot(attackClip);
     }
 }

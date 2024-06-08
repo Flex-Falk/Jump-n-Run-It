@@ -19,6 +19,10 @@ public class PlayerManager : MonoBehaviour
     public static bool shieldPowerUp;
     public static bool doubleJumpPowerUp;
 
+    public AudioClip coinClip;
+    private AudioSource audioSource;
+
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -40,6 +44,9 @@ public class PlayerManager : MonoBehaviour
         Time.timeScale = 1.0f;
         gameOverPanel.SetActive(false);
 
+        audioSource = GetComponent<AudioSource>();
+
+
         // populate available
         foreach (var availablePortName in System.IO.Ports.SerialPort.GetPortNames())
         {
@@ -50,6 +57,7 @@ public class PlayerManager : MonoBehaviour
     public void Coin()
     {
         numberOfCoins++;
+        audioSource.PlayOneShot(coinClip);
         coinsText.text = "Coins: " + numberOfCoins;
     }
 

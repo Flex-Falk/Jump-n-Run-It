@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - Ground
+  - Breakable
+  - AttackArea
   layers:
   - Default
   - TransparentFX
