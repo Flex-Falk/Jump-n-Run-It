@@ -25,10 +25,9 @@ public class PlayerController : MonoBehaviour
     private float jumpForce = 0.5f;
     public Animator animator;
 
-    public GameObject attackArea = default;
-    private bool isAttacking = false;
-    public float timeToAttack = 1f;
-    private float timer = 0f;
+    public Transform airShotSpawnPoint;
+    public GameObject airShotPrefab;
+
 
     private AudioSource audioSource;
 
@@ -50,7 +49,6 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         cc = GetComponent<CapsuleCollider>();
 
-        //attackArea = transform.GetChild(0);
 
         if(PortDataAccessor.Instance != null && PortDataAccessor.Instance.EventDataHook != null)
         {
@@ -116,16 +114,6 @@ public class PlayerController : MonoBehaviour
 
         if(InputHandler.AttackInput()){
             Attack();
-        }
-        
-        if(isAttacking){
-            timer += Time.deltaTime;
-
-            if(timer >= timeToAttack){
-                timer = 0;
-                isAttacking = false;
-                attackArea.SetActive(isAttacking);
-            }
         }
 
         /*else
@@ -240,8 +228,8 @@ public class PlayerController : MonoBehaviour
     }
 
     void Attack(){
-        isAttacking = true;
-        attackArea.SetActive(isAttacking);
+        var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotSpawnPoint.rotation);
+        airShot.GetComponent<Rigidbody>().velocity = airShotSpawnPoint.forward * 100f;
         audioSource.PlayOneShot(attackClip);
     }
 }

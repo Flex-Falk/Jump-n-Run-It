@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour
     public static bool doubleJumpPowerUp;
 
     public AudioClip coinClip;
+    public AudioClip breakClip;
+
     private AudioSource audioSource;
 
 
@@ -60,6 +62,12 @@ public class PlayerManager : MonoBehaviour
         audioSource.PlayOneShot(coinClip);
         coinsText.text = "Coins: " + numberOfCoins;
     }
+
+    public void Crate()
+    {
+        audioSource.PlayOneShot(breakClip);
+    }
+
 
     public void Shield()
     {
