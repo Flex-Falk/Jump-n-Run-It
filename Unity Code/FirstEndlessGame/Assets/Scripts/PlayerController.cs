@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoBehaviour
 {
@@ -189,6 +190,15 @@ public class PlayerController : MonoBehaviour
         */
     }
 
+
+    public void Score()
+    {
+        PlayerManager.Instance.score += PlayerManager.numberOfCoins;
+        PlayerManager.Instance.score += rb.position.z;
+        PlayerManager.Instance.score -= Time.time;
+        PlayerManager.Instance.scoreText.text = "Score: " + PlayerManager.Instance.score;
+    }
+
     private void OnCollisionStay()
     {
         isGrounded = true;
@@ -209,6 +219,7 @@ public class PlayerController : MonoBehaviour
             {
                 isGameOver?.Invoke(true);
                 DisableControls();
+                Score();
             }else
             {
                 PlayerManager.shieldPowerUp = false;

@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour
     public static int numberOfCoins;
     public TextMeshProUGUI coinsText;
     public TextMeshProUGUI shieldText;
+    public TextMeshProUGUI scoreText;
+    public float score;
     public static bool speedPowerUp;
     public static bool shieldPowerUp;
     public static bool doubleJumpPowerUp;
@@ -23,6 +25,8 @@ public class PlayerManager : MonoBehaviour
     public AudioClip breakClip;
 
     private AudioSource audioSource;
+
+    public PlayerController pc = new PlayerController();
 
 
     private void Awake()
@@ -40,11 +44,13 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         numberOfCoins = 0;
+        score = 0f;
         speedPowerUp = false;
         shieldPowerUp = false;
         doubleJumpPowerUp = false;
         Time.timeScale = 1.0f;
         gameOverPanel.SetActive(false);
+
 
         audioSource = GetComponent<AudioSource>();
 
@@ -62,6 +68,7 @@ public class PlayerManager : MonoBehaviour
         audioSource.PlayOneShot(coinClip);
         coinsText.text = "Coins: " + numberOfCoins;
     }
+
 
     public void Crate()
     {
