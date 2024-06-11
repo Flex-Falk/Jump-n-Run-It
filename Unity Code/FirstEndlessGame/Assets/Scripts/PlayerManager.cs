@@ -1,18 +1,16 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance { get; private set; }
-    public static bool gameOver;
+    public bool gameOver;
+    public List<GameObject> prefabList = new List<GameObject>();
     public GameObject gameOverPanel;
     public TMP_Dropdown tmp_dropdown;
-    public static int numberOfCoins;
+    public int numberOfCoins;
     public TextMeshProUGUI coinsText;
     public TextMeshProUGUI shieldText;
     public TextMeshProUGUI scoreText;
@@ -20,14 +18,11 @@ public class PlayerManager : MonoBehaviour
     public static bool speedPowerUp;
     public static bool shieldPowerUp;
     public static bool doubleJumpPowerUp;
-
+    public Rigidbody rb;
     public AudioClip coinClip;
     public AudioClip breakClip;
 
     private AudioSource audioSource;
-
-    public PlayerController pc = new PlayerController();
-
 
     private void Awake()
     {
@@ -70,8 +65,12 @@ public class PlayerManager : MonoBehaviour
     }
 
 
-    public void Crate()
+    public void Crate(Transform trans)
     {
+        GameObject prefab = prefabList[UnityEngine.Random.Range(0, prefabList.Count)];
+        Vector3 v = new Vector3(trans.position.x, prefab.transform.position.y, trans.position.z);
+        prefab.transform.position = v;
+        Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
         audioSource.PlayOneShot(breakClip);
     }
 
@@ -81,14 +80,37 @@ public class PlayerManager : MonoBehaviour
         shieldText.text = "Shield: " + shieldPowerUp;
     }
 
+    public void Score()
+    {
+        score += numberOfCoins;
+        score += rb.position.z;
+        score -= Time.time;
+        scoreText.text = "Score: " + score;
+    }
+    public bool HitShield()
+    {
+        //if it exists remove shield
+        //if it doesnt, kill
+        if (shieldPowerUp == true) {
+            shieldPowerUp = false;
+            Shield();
+            return true;
+        }else
+        {
+            return false; 
+        }
+        
+    }
 
     private void IsGameOver(bool value)
     {
         if (value)
         {
+            Score();
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
         }
+
     }
     private void OnEnable() => PlayerController.isGameOver += IsGameOver;
     private void OnDisable() => PlayerController.isGameOver -= IsGameOver;

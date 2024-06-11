@@ -190,15 +190,6 @@ public class PlayerController : MonoBehaviour
         */
     }
 
-
-    public void Score()
-    {
-        PlayerManager.Instance.score += PlayerManager.numberOfCoins;
-        PlayerManager.Instance.score += rb.position.z;
-        PlayerManager.Instance.score -= Time.time;
-        PlayerManager.Instance.scoreText.text = "Score: " + PlayerManager.Instance.score;
-    }
-
     private void OnCollisionStay()
     {
         isGrounded = true;
@@ -213,17 +204,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Obstacle")
+        if (collision.transform.tag == "Obstacle" || collision.transform.tag == "Breakable")
         {
-            if(PlayerManager.shieldPowerUp == false)
+            if(!PlayerManager.Instance.HitShield())
             {
                 isGameOver?.Invoke(true);
                 DisableControls();
-                Score();
-            }else
-            {
-                PlayerManager.shieldPowerUp = false;
-                PlayerManager.Instance.Shield();
             }
             
         }
@@ -239,6 +225,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Attack(){
+        Debug.Log("Shoot");
         var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotSpawnPoint.rotation);
         airShot.GetComponent<Rigidbody>().velocity = airShotSpawnPoint.forward * 100f;
         audioSource.PlayOneShot(attackClip);

@@ -1089,15 +1089,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3054a04345d9ca741955cc4588b5b5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: 0
+  prefabList:
+  - {fileID: 3389869230797437852, guid: 68b5ac66795215f4d889a0c51269ef31, type: 3}
+  - {fileID: 6767194636515819199, guid: d73b6c4008ade114288ec384d345b9b5, type: 3}
+  - {fileID: 2208654919467749912, guid: bc6ae190e430b2e43ae689724e771358, type: 3}
+  - {fileID: 4128025185797579490, guid: 7c61e87eb54138845b02357eefcd73f4, type: 3}
   gameOverPanel: {fileID: 1817150529}
   tmp_dropdown: {fileID: 1852921274}
+  numberOfCoins: 0
   coinsText: {fileID: 1433006474}
   shieldText: {fileID: 18447265}
   scoreText: {fileID: 1115088647}
   score: 0
+  rb: {fileID: 313406008}
   coinClip: {fileID: 8300000, guid: 3382fc3210027c24ba28eab74083cae1, type: 3}
   breakClip: {fileID: 8300000, guid: 48763848a5e39d24780462bab96cfeb4, type: 3}
-  pc: {fileID: 0}
 --- !u!4 &435104664
 Transform:
   m_ObjectHideFlags: 0

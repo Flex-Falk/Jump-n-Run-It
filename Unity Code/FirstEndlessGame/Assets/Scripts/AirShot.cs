@@ -24,8 +24,8 @@ public class AirShot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Breakable")
         {
+            PlayerManager.Instance.Crate(collision.gameObject.transform);
             Destroy(collision.gameObject);
-            PlayerManager.Instance.Crate();
             Destroy(gameObject);
 
         }
