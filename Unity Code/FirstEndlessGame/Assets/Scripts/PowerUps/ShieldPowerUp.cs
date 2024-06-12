@@ -9,7 +9,7 @@ public class ShieldPowerUp : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            PlayerManager.shieldPowerUp = true;
+            PlayerManager.Instance.shieldPowerUp = true;
             PlayerManager.Instance.Shield();
             Destroy(gameObject);
         }

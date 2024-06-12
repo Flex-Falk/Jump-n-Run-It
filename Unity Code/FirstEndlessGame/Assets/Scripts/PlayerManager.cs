@@ -12,15 +12,15 @@ public class PlayerManager : MonoBehaviour
     public TMP_Dropdown tmp_dropdown;
     public int numberOfCoins;
     public TextMeshProUGUI coinsText;
-    public TextMeshProUGUI shieldText;
     public TextMeshProUGUI scoreText;
     public float score;
     public static bool speedPowerUp;
-    public static bool shieldPowerUp;
+    public bool shieldPowerUp;
     public static bool doubleJumpPowerUp;
     public Rigidbody rb;
     public AudioClip coinClip;
     public AudioClip breakClip;
+    public GameObject shieldAnim;
 
     private AudioSource audioSource;
 
@@ -77,7 +77,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Shield()
     {
-        shieldText.text = "Shield: " + shieldPowerUp;
+        shieldAnim.SetActive(shieldPowerUp);
     }
 
     public void Score()

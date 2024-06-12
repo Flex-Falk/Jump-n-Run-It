@@ -226,8 +226,9 @@ public class PlayerController : MonoBehaviour
 
     void Attack(){
         Debug.Log("Shoot");
-        var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotSpawnPoint.rotation);
-        airShot.GetComponent<Rigidbody>().velocity = airShotSpawnPoint.forward * 100f;
+        
+        var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotPrefab.transform.rotation);
+        airShot.GetComponent<Rigidbody>().velocity = airShotSpawnPoint.forward * 20f;
         audioSource.PlayOneShot(attackClip);
     }
 }
