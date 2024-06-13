@@ -82,9 +82,15 @@ public class PlayerManager : MonoBehaviour
 
     public void Score()
     {
+        score = 0;    
         score += numberOfCoins;
         score += rb.position.z;
-        score -= Time.time;
+        score -= Time.timeSinceLevelLoad;
+        if (score < 0){
+            score = 0;
+        }
+        score = (int)Math.Ceiling(score);
+
         scoreText.text = "Score: " + score;
     }
     public bool HitShield()

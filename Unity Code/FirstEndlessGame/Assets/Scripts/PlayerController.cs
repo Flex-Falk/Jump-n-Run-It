@@ -70,6 +70,14 @@ public class PlayerController : MonoBehaviour
                 runOnLane(2);
             });
 
+            eventDataHook.registerDataHook("Accel", (object sender, DataArrivedEventArgs args) => {
+                Debug.Log("Accel" + args.Value);
+            });
+
+            eventDataHook.registerDataHook("Gyro", (object sender, DataArrivedEventArgs args) => {
+                Debug.Log("Gyros" + args.Value);
+            });
+
         }
 
         animator.SetBool("isGameStarted", true);
