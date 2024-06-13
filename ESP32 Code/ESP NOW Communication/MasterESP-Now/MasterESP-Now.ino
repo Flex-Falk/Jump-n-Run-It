@@ -6,7 +6,8 @@
  
 // REPLACE WITH THE MAC Address of your receiver 
 //uint8_t broadcastAddress[] = {0x10, 0x97, 0xBD, 0xD2, 0xD4, 0xEC}; // send to Master
-uint8_t broadcastAddress[] = {0x58, 0xBF, 0x25, 0x93, 0x39, 0xBC}; // send to IMU-ESP
+uint8_t broadcastAddress[] = {0x58, 0xBF, 0x25, 0x93, 0x06, 0x04}; // send to IMU-ESP
+// // 58:bf:25:93:06:04
 
 typedef enum msg_type_t {
   MSG_TYPE_ACCEL_GYRO         = (1),   /**< Gravity + linear acceleration */
@@ -32,12 +33,14 @@ typedef struct sensor_imu_t{
 
 typedef struct msg_data_t {
   union {
-    sensor_imu_t accel;
-    sensor_imu_t gyro;
-  };
-  struct {
-    char* msg;
-    int length;
+    struct {
+      sensor_imu_t accel;
+      sensor_imu_t gyro;
+    };
+    struct {
+      char* msg;
+      int length;
+    };
   };
 };
 
@@ -58,7 +61,7 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
 }
 
 // Callback when data is received
-void OnDataRecv(const esp_now_recv_info* info, const uint8_t *incomingData, int len) {
+void OnDataRecv(const uint8_t * info, const uint8_t *incomingData, int len) {
   memcpy(&receive_msg, incomingData, sizeof(receive_msg));
   switch(receive_msg.msgType){
     case(MSG_TYPE_TEXT): {
@@ -66,8 +69,8 @@ void OnDataRecv(const esp_now_recv_info* info, const uint8_t *incomingData, int 
       break;
     }
     case(MSG_TYPE_ACCEL_GYRO): { 
-      Serial.printf("Accel: x:%f, y:%f, z:%f", receive_msg.data.accel.x, receive_msg.data.accel.x, receive_msg.data.accel.x);
-      Serial.printf("Gyro: yaw:%f, pitch:%f, roll:%f", receive_msg.data.gyro.yaw, receive_msg.data.gyro.pitch, receive_msg.data.gyro.roll);
+      Serial.printf("Accel:%f,%f,%f;", receive_msg.data.accel.x, receive_msg.data.accel.y, receive_msg.data.accel.z);
+      Serial.printf("Gyro:%f,%f,%f;", receive_msg.data.gyro.yaw, receive_msg.data.gyro.pitch, receive_msg.data.gyro.roll);
       break;
     }
   }

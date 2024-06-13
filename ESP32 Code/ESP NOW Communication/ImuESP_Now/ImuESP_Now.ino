@@ -49,7 +49,7 @@ void setupIMU() {
   // join I2C bus (I2Cdev library doesn't do this automatically)
   #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
     Wire.begin();
-    Wire.setClock(400000); // 400kHz I2C clock. Comment this line if having compilation difficulties
+    //Wire.setClock(400000); // 400kHz I2C clock. Comment this line if having compilation difficulties
   #elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
     Fastwire::setup(400, true);
   #endif
@@ -145,12 +145,14 @@ typedef struct sensor_imu_t{
 
 typedef struct msg_data_t {
   union {
-    sensor_imu_t accel;
-    sensor_imu_t gyro;
-  };
-  struct {
-    char* msg;
-    int length;
+    struct {
+      sensor_imu_t accel;
+      sensor_imu_t gyro;
+    };
+    struct {
+      char* msg;
+      int length;
+    };
   };
 };
 
@@ -172,7 +174,7 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
 }
 
 // Callback when data is received
-void OnDataRecv(const esp_now_recv_info* info, const uint8_t *incomingData, int len) {
+void OnDataRecv(const uint8_t* info, const uint8_t *incomingData, int len) {
   memcpy(&receive_msg, incomingData, sizeof(receive_msg));
   switch(receive_msg.msgType){
     case(MSG_TYPE_TEXT): { 
@@ -213,6 +215,7 @@ void send_imu_data() {
   send_msg.data.accel.z = aaReal.z;
   send_msg.msgType = MSG_TYPE_ACCEL_GYRO;
 
+  Serial.printf("x:%f y:%f z%f yaw:%f pitch:%f roll:%f", send_msg.data.accel.x, send_msg.data.accel.y, send_msg.data.accel.z, send_msg.data.gyro.yaw, send_msg.data.gyro.pitch, send_msg.data.gyro.roll);
   send_to_master(send_msg);
 }
 
