@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
     public static event Action<bool> isGameOver;
 
     private EventDataHook eventDataHook;
+    private List<GyroData> gyroData = new List<GyroData>();
 
     // Start is called before the first frame update
     void Start()
@@ -72,10 +74,12 @@ public class PlayerController : MonoBehaviour
 
             eventDataHook.registerDataHook("Accel", (object sender, DataArrivedEventArgs args) => {
                 Debug.Log("Accel" + args.Value);
+                gyroData.Add(new GyroData(args.Value, Time.time, args.Key));
             });
 
             eventDataHook.registerDataHook("Gyro", (object sender, DataArrivedEventArgs args) => {
                 Debug.Log("Gyros" + args.Value);
+                gyroData.Add(new GyroData(args.Value, Time.time, args.Key));
             });
 
         }
@@ -230,6 +234,7 @@ public class PlayerController : MonoBehaviour
     {
         this.enabled = false;
         audioSource.PlayOneShot(deathClip);
+        SaveSystem.SaveGyroData(gyroData);
     }
 
     void Attack(){
