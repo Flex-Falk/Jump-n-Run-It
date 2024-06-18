@@ -53,31 +53,42 @@ public class PlayerController : MonoBehaviour
         cc = GetComponent<CapsuleCollider>();
 
 
-        if(PortDataAccessor.Instance != null && PortDataAccessor.Instance.EventDataHook != null)
+        if (PortDataAccessor.Instance != null && PortDataAccessor.Instance.EventDataHook != null)
         {
             eventDataHook = PortDataAccessor.Instance.EventDataHook;
 
             //example Serial.print("left:1;") , important: no newline
-            eventDataHook.registerDataHook("Left", (object sender, DataArrivedEventArgs args) => {
+            eventDataHook.registerDataHook("Left", (object sender, DataArrivedEventArgs args) =>
+            {
                 runOnLane(0);
             });
 
             //example Serial.print("middle:1;") , important: no newline
-            eventDataHook.registerDataHook("Middle", (object sender, DataArrivedEventArgs args) => {
+            eventDataHook.registerDataHook("Middle", (object sender, DataArrivedEventArgs args) =>
+            {
                 runOnLane(1);
             });
 
             //example Serial.print("right:1;") , important: no newline
-            eventDataHook.registerDataHook("Right", (object sender, DataArrivedEventArgs args) => {
+            eventDataHook.registerDataHook("Right", (object sender, DataArrivedEventArgs args) =>
+            {
                 runOnLane(2);
             });
 
-            eventDataHook.registerDataHook("Accel", (object sender, DataArrivedEventArgs args) => {
+            eventDataHook.registerDataHook("Accel", (object sender, DataArrivedEventArgs args) =>
+            {
                 Debug.Log("Accel" + args.Value);
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    args.Value += ",1";
+                } else {
+                    args.Value += ",0";
+                }
                 gyroData.Add(new GyroData(args.Key, Time.time, args.Value));
             });
 
-            eventDataHook.registerDataHook("Gyro", (object sender, DataArrivedEventArgs args) => {
+            eventDataHook.registerDataHook("Gyro", (object sender, DataArrivedEventArgs args) =>
+            {
                 Debug.Log("Gyros" + args.Value);
                 gyroData.Add(new GyroData(args.Key, Time.time, args.Value));
             });
@@ -91,7 +102,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 globalpos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        
+
         if (InputHandler.PlayerRunInput())
         {
             runOnLane(InputHandler.LaneInput());
@@ -102,20 +113,20 @@ public class PlayerController : MonoBehaviour
             if (currentSpeed <= 0.01)
                 currentSpeed = 0;
             //direction.z = currentSpeed*Time.deltaTime;
-            
+
         }
 
-        
+
         if (InputHandler.JumpInput())
         {
-            Debug.Log(isGrounded);    
+            Debug.Log(isGrounded);
             if (isGrounded | PlayerManager.doubleJumpPowerUp == true)
             {
                 Jump();
                 isGrounded = false;
-                PlayerManager.doubleJumpPowerUp = false;    
+                PlayerManager.doubleJumpPowerUp = false;
             }
-         }
+        }
 
         animator.SetBool("isCrouching", isCrouching);
         if (InputHandler.CrouchInput())
@@ -125,7 +136,8 @@ public class PlayerController : MonoBehaviour
             isCrouching = true;
         }
 
-        if(InputHandler.AttackInput()){
+        if (InputHandler.AttackInput())
+        {
             Attack();
         }
 
@@ -140,10 +152,11 @@ public class PlayerController : MonoBehaviour
 
         Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
-        if(desiredLane == 0)
+        if (desiredLane == 0)
         {
             targetPosition += Vector3.left * laneDistance;
-        }else if(desiredLane == 2)
+        }
+        else if (desiredLane == 2)
         {
             targetPosition += Vector3.right * laneDistance;
         }
@@ -170,8 +183,8 @@ public class PlayerController : MonoBehaviour
                 currentSpeed += 1f;
                 currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
             }
-            
-            
+
+
         }
 
         //direction.z = currentSpeed*Time.deltaTime;
@@ -206,7 +219,7 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = true;
     }
-    private void OnCollisionExit(Collision collision) 
+    private void OnCollisionExit(Collision collision)
     {
         if (collision.transform.tag == "Ground")
         {
@@ -218,28 +231,29 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.tag == "Obstacle" || collision.transform.tag == "Breakable")
         {
-            if(!PlayerManager.Instance.HitShield())
+            if (!PlayerManager.Instance.HitShield())
             {
                 isGameOver?.Invoke(true);
                 DisableControls();
             }
-            
+
         }
         if (collision.transform.tag == "Ground")
         {
             animator.SetBool("isJumping", false);
         }
     }
-     public void DisableControls()
+    public void DisableControls()
     {
         this.enabled = false;
         audioSource.PlayOneShot(deathClip);
         SaveSystem.SaveGyroData(gyroData);
     }
 
-    void Attack(){
+    void Attack()
+    {
         Debug.Log("Shoot");
-        
+
         var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotPrefab.transform.rotation);
         airShot.GetComponent<Rigidbody>().velocity = airShotSpawnPoint.forward * 20f;
         audioSource.PlayOneShot(attackClip);
