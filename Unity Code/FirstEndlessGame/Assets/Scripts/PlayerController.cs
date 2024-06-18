@@ -80,16 +80,30 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Accel" + args.Value);
                 if (Input.GetKey(KeyCode.Space))
                 {
-                    args.Value += ",1";
+                    args.Value += ",Jump";
+                } else if (Input.GetKey(KeyCode.C)) {
+                    args.Value += ",Crouch";
+                }else if (Input.GetKey(KeyCode.X)) {
+                    args.Value += ",Shoot";
                 } else {
-                    args.Value += ",0";
+                    args.Value += ",Neutral";
                 }
                 gyroData.Add(new GyroData(args.Key, Time.time, args.Value));
             });
 
             eventDataHook.registerDataHook("Gyro", (object sender, DataArrivedEventArgs args) =>
             {
-                Debug.Log("Gyros" + args.Value);
+                Debug.Log("Gyro" + args.Value);
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    args.Value += ",Jump";
+                } else if (Input.GetKey(KeyCode.C)) {
+                    args.Value += ",Crouch";
+                }else if (Input.GetKey(KeyCode.X)) {
+                    args.Value += ",Shoot";
+                } else {
+                    args.Value += ",Neutral";
+                }
                 gyroData.Add(new GyroData(args.Key, Time.time, args.Value));
             });
 

@@ -31,7 +31,7 @@ public static class SaveSystem
 
     private static string ToCSV(List<GyroData> gyroData, bool b)
     {
-        var sb = new StringBuilder("Type,Time,x,y,z" + '\n');
+        var sb = new StringBuilder("Type,Time,x,y,z,Action" + '\n');
         if (b)
         {
             sb = new StringBuilder('\n');
