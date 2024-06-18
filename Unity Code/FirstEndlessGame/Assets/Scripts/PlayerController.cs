@@ -74,12 +74,12 @@ public class PlayerController : MonoBehaviour
 
             eventDataHook.registerDataHook("Accel", (object sender, DataArrivedEventArgs args) => {
                 Debug.Log("Accel" + args.Value);
-                gyroData.Add(new GyroData(args.Value, Time.time, args.Key));
+                gyroData.Add(new GyroData(args.Key, Time.time, args.Value));
             });
 
             eventDataHook.registerDataHook("Gyro", (object sender, DataArrivedEventArgs args) => {
                 Debug.Log("Gyros" + args.Value);
-                gyroData.Add(new GyroData(args.Value, Time.time, args.Key));
+                gyroData.Add(new GyroData(args.Key, Time.time, args.Value));
             });
 
         }

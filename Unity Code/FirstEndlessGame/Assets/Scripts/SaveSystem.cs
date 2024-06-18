@@ -9,6 +9,9 @@ using UnityEngine;
 
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
+public class SensorData<T> {
+
+}
 [Serializable]
 public class GyroData
 {
@@ -22,7 +25,6 @@ public class GyroData
         time = t;
         value = v;
     }
-
 }
 public static class SaveSystem
 {
