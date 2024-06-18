@@ -16,13 +16,13 @@ public class SensorData<T> {
 public class GyroData
 {
     public string type;
-    public float time;
+    public string time;
     public string value;
 
     public GyroData(string s, float t, string v) 
     { 
         type = s;
-        time = t;
+        time = t.ToString().Replace(',', '.');
         value = v;
     }
 }
@@ -31,14 +31,14 @@ public static class SaveSystem
 
     private static string ToCSV(List<GyroData> gyroData, bool b)
     {
-        var sb = new StringBuilder("Type,Time,Value" + '\n');
+        var sb = new StringBuilder("Type,Time,x,y,z" + '\n');
         if (b)
         {
             sb = new StringBuilder('\n');
         }
         foreach (var data in gyroData)
         {
-            sb.Append(data.type.ToString()).Append(',').Append(data.time.ToString()).Append(',').Append(data.value.ToString()).Append('\n');
+            sb.Append(data.type.ToString()).Append(',').Append(data.time).Append(',').Append(data.value.ToString()).Append('\n');
         }
 
         return sb.ToString();
