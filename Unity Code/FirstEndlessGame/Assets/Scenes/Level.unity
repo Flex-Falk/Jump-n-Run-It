@@ -1079,6 +1079,7 @@ MonoBehaviour:
   coinClip: {fileID: 8300000, guid: 3382fc3210027c24ba28eab74083cae1, type: 3}
   breakClip: {fileID: 8300000, guid: 48763848a5e39d24780462bab96cfeb4, type: 3}
   shieldAnim: {fileID: 354894654}
+  explosion: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
 --- !u!4 &435104664
 Transform:
   m_ObjectHideFlags: 0

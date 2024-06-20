@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     public AudioClip coinClip;
     public AudioClip breakClip;
     public GameObject shieldAnim;
+    public GameObject explosion;
 
     private AudioSource audioSource;
 
@@ -70,6 +71,7 @@ public class PlayerManager : MonoBehaviour
         GameObject prefab = prefabList[UnityEngine.Random.Range(0, prefabList.Count)];
         Vector3 v = new Vector3(trans.position.x, prefab.transform.position.y, trans.position.z);
         prefab.transform.position = v;
+        Instantiate(explosion, trans.position, trans.rotation);
         Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
         audioSource.PlayOneShot(breakClip);
     }
