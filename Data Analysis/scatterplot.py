@@ -139,4 +139,50 @@ def plot_converted(folder):
         print(file)
         plot_imu_data(pd.read_csv(file), None, file)
 
+
+
+def set_all_actions_to_neutral(folder):
+    filesToConvert = list_paths(folder, "*.csv")
+    for file in filesToConvert:
+        print(file)
+        df = pd.read_csv(file)
+        df["action"] = "Neutral"
+        df.to_csv(file, index=False)
+
+
+def set_labels_by_range():
+    file = "file"
+    ranges = "ranges"
+    label = "label"
+    filesWithRangesAndLabels = [
+        {
+            file: ".\\converted_export_crouch.csv",
+            ranges: [(138, 154), (233, 249), (335, 349)],
+            label: "Crouch"
+        },
+        {
+            file: ".\\converted_export_crouch_switch_lanes.csv",
+            ranges: [(144, 161), (254, 278), (368, 391)],
+            label: "Crouch"
+        },
+        {  # index vs x -> dots goes up then rly far down then to middel
+            file: ".\\converted_export_jump_switch_lanes.csv",
+            ranges: [(151, 181), (254, 283), (337, 374)],
+            label: "Jump"
+        },
+        {
+            file: ".\\converted_export_punch_switch_lanes.csv",
+            ranges: [(122, 133), (252, 267), (374, 390)],
+            label: "Shoot"
+        }
+    ]
+    for fileWithRanges in filesWithRangesAndLabels:
+        df = pd.read_csv(fileWithRanges[file])
+        for [start, inclusiveEnd] in fileWithRanges[ranges]:
+            for i in range(start, inclusiveEnd+1):
+                df.loc[i, "action"] = fileWithRanges[label]
+        df.to_csv(fileWithRanges[file], index=False)
+
+#set_all_actions_to_neutral(".")
+#set_labels_by_range()
 plot_converted(".")

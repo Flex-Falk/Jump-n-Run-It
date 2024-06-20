@@ -1,0 +1,22 @@
+[
+	{
+		file: ".\\converted_export_crouch.csv",
+		ranges: [(138, 154), (235, 249), (335, 349)],
+		label: "Crouch"
+	},
+	{
+		file: ".\\converted_export_crouch_switch_lanes.csv",
+		ranges: [(144, 161), (253, 278), (368, 391)],
+		label: "Crouch"
+	},
+	{	# index vs x -> dots goes up then rly far down then to middel
+		file: ".\\converted_export_jump_switch_lanes.csv",
+		ranges: [(151, 181), (254, 283), (337, 374)],
+		label: "Jump"
+	},
+	{
+		file: ".\\converted_export_punch_switch_lanes.csv",
+		ranges: [(122, 133), (252, 267), (374, 390)],
+		label: "Shoot"
+	}
+]
