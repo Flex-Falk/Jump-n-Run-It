@@ -14,8 +14,8 @@ public enum UserAction
 public class RNNModelHandler : MonoBehaviour
 {
     public NNModel modelAsset;
-    private IWorker worker;
     private Model model;
+    private IWorker worker;
 
     private string[] keys;
     private Dictionary<string, float> inputDict;
@@ -66,7 +66,8 @@ public class RNNModelHandler : MonoBehaviour
 
         // Input tensor erstellen
         // Tensor inputTensor = new Tensor(1, 1,  data);
-        Tensor inputTensor = new Tensor(1, 1, data.Length, 1, data);
+        Tensor inputTensor = new Tensor(1, data.Length, 1, 1, data);
+
 
         // Vorhersage treffen
         worker.Execute(inputTensor);
