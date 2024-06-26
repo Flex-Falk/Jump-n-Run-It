@@ -2802,6 +2802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1061774694}
   - component: {fileID: 1061774693}
+  - component: {fileID: 1061774695}
   m_Layer: 0
   m_Name: RNNManager
   m_TagString: Untagged
@@ -2816,7 +2817,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061774692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a5f244a39ef2f14d8701e286d738d3b, type: 3}
   m_Name: 
@@ -2837,6 +2838,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1061774695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061774692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d9ba0992be8b848b598d6ac0d9094f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTxStarted: 0
+  IP: 127.0.0.1
+  rxPort: 8000
+  txPort: 8001
 --- !u!1 &1081167896
 GameObject:
   m_ObjectHideFlags: 0

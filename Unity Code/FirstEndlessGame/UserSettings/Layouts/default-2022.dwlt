@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357.3334
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -321,7 +321,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/RNN_ONNX_Models
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -329,16 +329,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/RNN_ONNX_Models
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Code Projects\PhysicalComputingLab\Jump-n-Run-It\Unity Code\FirstEndlessGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 78a50000
-    m_LastClickedID: 42360
-    m_ExpandedIDs: 0000000058a500005aa500005ca500005ea5000060a5000000ca9a3bffffff7f
+    m_SelectedIDs: 64a50000
+    m_LastClickedID: 42340
+    m_ExpandedIDs: 000000005ca500005ea5000060a5000062a5000064a5000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -366,7 +366,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000058a500005aa500005ca500005ea5000060a50000
+    m_ExpandedIDs: 000000005ca500005ea5000060a5000062a5000064a50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -391,8 +391,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 98620000
-    m_LastClickedInstanceID: 25240
+    m_SelectedInstanceIDs: 9c620000
+    m_LastClickedInstanceID: 25244
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300001c5f0000ee87000088d20000c0c70200
     m_RenameOverlay:
@@ -506,9 +506,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 98620000
-      m_LastClickedID: 25240
-      m_ExpandedIDs: 2cfbffff
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 1afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
