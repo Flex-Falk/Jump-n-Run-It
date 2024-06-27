@@ -2854,6 +2854,7 @@ MonoBehaviour:
   IP: 127.0.0.1
   rxPort: 8000
   txPort: 8001
+  msgToServer: -24939.0f,4538.0f,4197.0f,-47.376305f,-26.376276f,-4.485165f
 --- !u!1 &1081167896
 GameObject:
   m_ObjectHideFlags: 0

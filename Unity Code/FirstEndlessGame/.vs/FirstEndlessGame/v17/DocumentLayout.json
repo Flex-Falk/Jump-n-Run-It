@@ -3,36 +3,24 @@
   "WorkspaceRootPath": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|e:\\code projects\\physicalcomputinglab\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\rnnmodelhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\rnnmodelhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\airshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\airshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\powerups\\doublejumppowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\powerups\\doublejumppowerup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|e:\\code projects\\physicalcomputinglab\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\rnnmodelhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\rnnmodelhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|e:\\code projects\\physicalcomputinglab\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\udpsocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\udpsocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|e:\\code projects\\physicalcomputinglab\\jump-n-run-it\\unity code\\firstendlessgame\\assets\\scripts\\inputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\portdataaccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\portdataaccessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD5DB58-8248-58E1-0151-1B06B7983001}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\imu_controller_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,99 +35,73 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RNNModelHandler.cs",
-              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\RNNModelHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\RNNModelHandler.cs",
-              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\RNNModelHandler.cs",
-              "RelativeToolTip": "Assets\\Scripts\\RNNModelHandler.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAowFgAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T17:39:46.883Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AirShot.cs",
-              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\AirShot.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\AirShot.cs",
-              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\AirShot.cs",
-              "RelativeToolTip": "Assets\\Scripts\\AirShot.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAowC0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T14:21:12.535Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DoubleJumpPowerUp.cs",
-              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PowerUps\\DoubleJumpPowerUp.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PowerUps\\DoubleJumpPowerUp.cs",
-              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PowerUps\\DoubleJumpPowerUp.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PowerUps\\DoubleJumpPowerUp.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-07T10:53:59.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlayerManager.cs",
-              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerManager.cs",
-              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerManager.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAmwEMAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T08:54:12.257Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Coin.cs",
-              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\Coin.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Coin.cs",
-              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\Coin.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Coin.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T08:51:31.092Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AQIAAMsAAAAAAAAAAAAuwOYAAABTAAAA",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAmwDgAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:08:04.168Z"
+              "WhenOpened": "2024-05-24T15:08:04.168Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
+              "Title": "InputHandler.cs",
+              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\InputHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InputHandler.cs",
+              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\InputHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InputHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T07:34:30.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "PortDataAccessor.cs",
               "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PortDataAccessor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PortDataAccessor.cs",
               "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\PortDataAccessor.cs",
               "RelativeToolTip": "Assets\\Scripts\\PortDataAccessor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:02:17.78Z"
+              "WhenOpened": "2024-05-24T15:02:17.78Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RNNModelHandler.cs",
+              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\RNNModelHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RNNModelHandler.cs",
+              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\RNNModelHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RNNModelHandler.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAgwGIAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T07:41:49.696Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IMU_Controller_Test.cs",
-              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\IMU_Controller_Test.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\IMU_Controller_Test.cs",
-              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\IMU_Controller_Test.cs",
-              "RelativeToolTip": "Assets\\Scripts\\IMU_Controller_Test.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAApwD0AAAA+AAAA",
+              "DocumentIndex": 2,
+              "Title": "UdpSocket.cs",
+              "DocumentMoniker": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\UdpSocket.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UdpSocket.cs",
+              "ToolTip": "E:\\Code Projects\\PhysicalComputingLab\\Jump-n-Run-It\\Unity Code\\FirstEndlessGame\\Assets\\Scripts\\UdpSocket.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UdpSocket.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAgwDwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T11:12:44.172Z"
+              "WhenOpened": "2024-06-26T18:14:27.732Z",
+              "EditorCaption": ""
             }
           ]
         }

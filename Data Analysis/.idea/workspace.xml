@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f961da7e-c47f-46fe-a859-c7ef12ecb51a" name="Changes" comment="" />
+    <list default="true" id="f961da7e-c47f-46fe-a859-c7ef12ecb51a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LSTM_NN/train_jump_n_run.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/LSTM_NN/train_jump_n_run.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converted_export_crouch.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/converted_export_crouch_switch_lanes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/converted_export_jump_switch_lanes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/converted_export_punch_switch_lanes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/converted_export_swich_lanes_only.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Unity Code/FirstEndlessGame/.vs/FirstEndlessGame/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../Unity Code/FirstEndlessGame/.vs/FirstEndlessGame/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Unity Code/FirstEndlessGame/.vs/FirstEndlessGame/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Unity Code/FirstEndlessGame/.vs/FirstEndlessGame/v17/DocumentLayout.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +32,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/DraggableRectangle.py" root0="SKIP_INSPECTION" />
+    <setting file="notebook://E:/Code Projects/PhysicalComputingLab/Jump-n-Run-It/Data Analysis/LSTM_NN/train_jump_n_run.ipynb" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/fakeData.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/scatterplot.py" root0="SKIP_INSPECTION" />
   </component>
@@ -30,20 +41,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Code Projects/PhysicalComputingLab/Jump-n-Run-It/python_lstm_server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "PyScientificConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Code Projects/PhysicalComputingLab/Jump-n-Run-It/python_lstm_server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;PyScientificConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="scatterplot" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Data Analysis" />
@@ -82,6 +93,7 @@
       <workItem from="1719053669179" duration="102000" />
       <workItem from="1719254009044" duration="608000" />
       <workItem from="1719426179602" duration="122000" />
+      <workItem from="1719470856454" duration="982000" />
     </task>
     <servers />
   </component>
@@ -89,7 +101,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/scatterplot_py$scatterplot.coverage" NAME="scatterplot Coverage Results" MODIFIED="1718919825325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/scatterplot_py$scatterplot.coverage" NAME="scatterplot Coverage Results" MODIFIED="1719470969324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Data_Analysis$fakeData.coverage" NAME="fakeData Coverage Results" MODIFIED="1718461784897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Data_Analysis$scatterplot.coverage" NAME="scatterplot Coverage Results" MODIFIED="1718710280056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

@@ -215,7 +215,7 @@ void send_imu_data() {
   send_msg.data.accel.z = aaReal.z;
   send_msg.msgType = MSG_TYPE_ACCEL_GYRO;
 
-  Serial.printf("x:%f y:%f z%f yaw:%f pitch:%f roll:%f", send_msg.data.accel.x, send_msg.data.accel.y, send_msg.data.accel.z, send_msg.data.gyro.yaw, send_msg.data.gyro.pitch, send_msg.data.gyro.roll);
+  //Serial.printf("x:%f y:%f z%f yaw:%f pitch:%f roll:%f", send_msg.data.accel.x, send_msg.data.accel.y, send_msg.data.accel.z, send_msg.data.gyro.yaw, send_msg.data.gyro.pitch, send_msg.data.gyro.roll);
   send_to_master(send_msg);
 }
 

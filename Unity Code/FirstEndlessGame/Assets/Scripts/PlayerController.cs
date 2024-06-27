@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private EventDataHook eventDataHook;
     private List<GyroData> gyroData = new List<GyroData>();
 
+    private UdpSocket udpSocket;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         cc = GetComponent<CapsuleCollider>();
 
+        udpSocket = UdpSocket.Instance;
 
         if (PortDataAccessor.Instance != null && PortDataAccessor.Instance.EventDataHook != null)
         {
@@ -74,7 +77,14 @@ public class PlayerController : MonoBehaviour
             {
                 runOnLane(2);
             });
-
+            //
+            eventDataHook.registerDataHook("IMU", (object sender, DataArrivedEventArgs args) =>
+            {
+                Debug.Log("IMU" + args.Value);
+                udpSocket.SendData(args.Value);
+                //gyroData.Add(new GyroData(args.Key, Time.time, args.Value));
+            });
+            /*
             eventDataHook.registerDataHook("Accel", (object sender, DataArrivedEventArgs args) =>
             {
                 Debug.Log("Accel" + args.Value);
@@ -106,6 +116,7 @@ public class PlayerController : MonoBehaviour
                 }
                 gyroData.Add(new GyroData(args.Key, Time.time, args.Value));
             });
+            */
 
         }
 

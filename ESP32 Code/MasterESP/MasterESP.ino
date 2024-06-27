@@ -102,8 +102,9 @@ void OnDataRecv(const esp_now_recv_info * info, const uint8_t *incomingData, int
       break;
     }
     case(MSG_TYPE_ACCEL_GYRO): { 
-      Serial.printf("Accel:%f,%f,%f;", receive_msg.data.accel.x, receive_msg.data.accel.y, receive_msg.data.accel.z);
-      Serial.printf("Gyro:%f,%f,%f;", receive_msg.data.gyro.yaw, receive_msg.data.gyro.pitch, receive_msg.data.gyro.roll);
+      Serial.printf("IMU:%f,%f,%f,%f,%f,%f;", receive_msg.data.accel.x, receive_msg.data.accel.y, receive_msg.data.accel.z, receive_msg.data.gyro.yaw, receive_msg.data.gyro.pitch, receive_msg.data.gyro.roll);
+      //Serial.printf("Accel:%f,%f,%f;", receive_msg.data.accel.x, receive_msg.data.accel.y, receive_msg.data.accel.z);
+      //Serial.printf("Gyro:%f,%f,%f;", receive_msg.data.gyro.yaw, receive_msg.data.gyro.pitch, receive_msg.data.gyro.roll);
       break;
     }
   }

@@ -20,22 +20,33 @@ public class UdpSocket : MonoBehaviour
     IPEndPoint remoteEndPoint;
     Thread receiveThread; // Receiving Thread
 
+    public static UdpSocket Instance { get; private set; }
+
     void Awake()
     {
-        // Create remote endpoint (to Matlab) 
-        remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP), txPort);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // to prevent copys after the first instance of this class
+        }
+        else
+        {
+            Instance = this;
+            // Create remote endpoint (to Matlab) 
+            remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP), txPort);
 
-        // Create local client
-        client = new UdpClient(rxPort);
+            // Create local client
+            client = new UdpClient(rxPort);
 
-        // local endpoint define (where messages are received)
-        // Create a new thread for reception of incoming messages
-        receiveThread = new Thread(new ThreadStart(ReceiveData));
-        receiveThread.IsBackground = true;
-        receiveThread.Start();
+            // local endpoint define (where messages are received)
+            // Create a new thread for reception of incoming messages
+            receiveThread = new Thread(new ThreadStart(ReceiveData));
+            receiveThread.IsBackground = true;
+            receiveThread.Start();
 
-        // Initialize (seen in comments window)
-        print("UDP Comms Initialised");
+            // Initialize (seen in comments window)
+            print("UDP Comms Initialised");
+        }
+       
     }
 
     // Start is called before the first frame update
@@ -44,17 +55,25 @@ public class UdpSocket : MonoBehaviour
         
     }
 
-    float interval = 5f;
-    float cur = 0f;
     // Update is called once per frame
     void Update()
     {
-        if(cur > interval)
+
+    }
+
+    [SerializeField] string msgToServer = "";
+    [ContextMenu("SendDataFromEditor")]
+    public void SendDataFromEditor() // Use to send data to Python
+    {
+        try
         {
-            SendData("Message from unity");
-            cur -= interval;
+            byte[] data = Encoding.UTF8.GetBytes(msgToServer);
+            client.Send(data, data.Length, remoteEndPoint);
         }
-        cur += Time.deltaTime;
+        catch (Exception err)
+        {
+            print(err.ToString());
+        }
     }
 
     public void SendData(string message) // Use to send data to Python
