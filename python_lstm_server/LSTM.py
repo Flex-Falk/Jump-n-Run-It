@@ -34,6 +34,7 @@ class LSTMClassifier(nn.Module):
 joblib.dump(scaler, 'scaler.pkl')
 joblib.dump(label_encoder, 'label_encoder.pkl')
 
+https://pytorch.org/tutorials/beginner/basics/saveloadrun_tutorial.html
 https://stackoverflow.com/questions/28656736/using-scikits-labelencoder-correctly-across-multiple-programs
 https://stackoverflow.com/questions/53152627/saving-standardscaler-model-for-use-on-new-datasets
 """

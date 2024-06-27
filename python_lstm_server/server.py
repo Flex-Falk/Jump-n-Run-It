@@ -6,6 +6,9 @@ import random
 from LSTM import load_lstm_from_file
 
 
+# Serial.printf("IMU:%f,%f,%f,%f,%f,%f;",
+#   receive_msg.data.accel.x, receive_msg.data.accel.y, receive_msg.data.accel.z,
+#   receive_msg.data.gyro.yaw, receive_msg.data.gyro.pitch, receive_msg.data.gyro.roll);
 def parse_imu_data(string):
     return list(map(lambda x: float(x), string.split(","))) # to use in LSTM we give it a batch_size of 1, so wrap with array
 
