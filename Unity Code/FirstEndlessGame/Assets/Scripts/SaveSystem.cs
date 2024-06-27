@@ -15,14 +15,10 @@ public class SensorData<T> {
 [Serializable]
 public class GyroData
 {
-    public string type;
-    public string time;
     public string value;
 
-    public GyroData(string s, float t, string v) 
+    public GyroData(string v) 
     { 
-        type = s;
-        time = t.ToString().Replace(',', '.');
         value = v;
     }
 }
@@ -31,14 +27,14 @@ public static class SaveSystem
 
     private static string ToCSV(List<GyroData> gyroData, bool b)
     {
-        var sb = new StringBuilder("Type,Time,x,y,z,Action" + '\n');
+        var sb = new StringBuilder("x,z,yaw,pitch,roll,action" + '\n');
         if (b)
         {
             sb = new StringBuilder('\n');
         }
         foreach (var data in gyroData)
         {
-            sb.Append(data.type.ToString()).Append(',').Append(data.time).Append(',').Append(data.value.ToString()).Append('\n');
+            sb.Append(data.value).Append('\n');
         }
 
         return sb.ToString();
@@ -57,7 +53,7 @@ public static class SaveSystem
         {
             writer.Write(data);
         }
-        Debug.Log("I wrote here:" + Application.persistentDataPath);
+        Debug.Log("[Save] " + Application.persistentDataPath);
     }
 
 }

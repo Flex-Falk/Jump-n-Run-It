@@ -44,7 +44,7 @@ public class UdpSocket : MonoBehaviour
             receiveThread.Start();
 
             // Initialize (seen in comments window)
-            print("UDP Comms Initialised");
+            Debug.Log("[UDP] " + "UDP Comms Initialised");
         }
        
     }
@@ -98,7 +98,7 @@ public class UdpSocket : MonoBehaviour
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] data = client.Receive(ref anyIP);
                 string text = Encoding.UTF8.GetString(data);
-                print(">> " + text);
+                Debug.Log("[Prediction] " + text);
                 ProcessInput(text);
             }
             catch (Exception err)

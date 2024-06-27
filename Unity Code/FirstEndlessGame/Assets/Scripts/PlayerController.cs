@@ -80,9 +80,9 @@ public class PlayerController : MonoBehaviour
             //
             eventDataHook.registerDataHook("IMU", (object sender, DataArrivedEventArgs args) =>
             {
-                Debug.Log("IMU" + args.Value);
+                Debug.Log("[IMU] " + args.Value);
                 udpSocket.SendData(args.Value);
-                //gyroData.Add(new GyroData(args.Key, Time.time, args.Value));
+                gyroData.Add(new GyroData(args.Value));
             });
             /*
             eventDataHook.registerDataHook("Accel", (object sender, DataArrivedEventArgs args) =>
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
 
         if (InputHandler.JumpInput())
         {
-            Debug.Log(isGrounded);
+            Debug.Log("[Grounded] " + isGrounded);
             if (isGrounded | PlayerManager.doubleJumpPowerUp == true)
             {
                 Jump();
@@ -277,7 +277,7 @@ public class PlayerController : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Shoot");
+        Debug.Log("[Action] Shoot");
 
         var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotPrefab.transform.rotation);
         airShot.GetComponent<Rigidbody>().velocity = airShotSpawnPoint.forward * 20f;
