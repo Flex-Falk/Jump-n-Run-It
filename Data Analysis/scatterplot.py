@@ -6,8 +6,6 @@ import matplotlib as mpl
 import os
 import fnmatch
 import mplcursors
-from fakeData import fakeImuData
-
 
 def list_paths(folder='.', pattern='*', case_sensitive=False, subfolders=False):
     """Return a list of the file paths matching the pattern in the specified
@@ -147,42 +145,52 @@ def set_all_actions_to_neutral(folder):
         print(file)
         df = pd.read_csv(file)
         df["action"] = "Neutral"
-        df.to_csv(file, index=False)
+        plot_imu_data(df, None, file)
+
+#set_all_actions_to_neutral("./Datasets")
 
 
 def set_labels_by_range():
-    file = "file"
+    file = "./Datasets/10x Jump, Shoot, Crouch.csv"
     ranges = "ranges"
     label = "label"
-    filesWithRangesAndLabels = [
+    rangesAndLabels = [
         {
-            file: ".\\converted_export_crouch.csv",
-            ranges: [(138, 154), (233, 249), (335, 349)],
-            label: "Crouch"
+            ranges: [(197, 208), (295, 301), (399, 408), (523, 529), (625, 631), (724, 731), (837, 843), (943, 950), (1044, 1051), (1150, 1156)],
+            label: "Jump_Forward"
         },
         {
-            file: ".\\converted_export_crouch_switch_lanes.csv",
-            ranges: [(144, 161), (254, 278), (368, 391)],
-            label: "Crouch"
-        },
-        {  # index vs x -> dots goes up then rly far down then to middel
-            file: ".\\converted_export_jump_switch_lanes.csv",
-            ranges: [(151, 181), (254, 283), (337, 374)],
-            label: "Jump"
+            ranges: [(209, 217), (302, 311), (409, 419), (530, 538), (632, 643), (732, 742), (844, 851), (951, 960), (1052, 1059), (1157, 1165)],
+            label: "Jump_Backward"
         },
         {
-            file: ".\\converted_export_punch_switch_lanes.csv",
-            ranges: [(122, 133), (252, 267), (374, 390)],
-            label: "Shoot"
+            ranges: [(1342, 1352), (1435, 1445), (1531, 1536), (1630, 1636), (1726, 1732), (1816, 1822), (1913, 1928), (2005, 2010), (2086, 2096), (2178, 2190)],
+            label: "Shoot_Forward"
+        },
+        {
+            ranges: [(1353, 1361), (1446, 1455), (1537, 1549), (1637, 1647), (1733, 1742), (1823, 1835), (1929, 1935), (2011, 2022), (2097, 2107), (2191, 2201)],
+            label: "Shoot_Backward"
+        },
+        {
+            ranges: [(2350, 2359), (2442, 2453), (2545, 2552), (2638, 2650), (2740, 2747), (2852, 2860), (2944, 2950), (3044, 3052), (3127, 3133), (3223, 3231)],
+            label: "Crouch_Forward"
+        },
+        {
+            ranges: [(2360, 2375), (2454, 2466), (2553, 2567), (2651, 2661), (2748, 2762), (2861, 2873), (2951, 2969), (3053, 3068), (3134, 3152), (3232, 3244)],
+            label: "Crouch_Backward"
         }
     ]
-    for fileWithRanges in filesWithRangesAndLabels:
-        df = pd.read_csv(fileWithRanges[file])
-        for [start, inclusiveEnd] in fileWithRanges[ranges]:
+    df = pd.read_csv(file)
+    df["action"] = "Neutral"
+    for rangeAndLabel in rangesAndLabels:
+        print(rangeAndLabel)
+        for [start, inclusiveEnd] in rangeAndLabel[ranges]:
             for i in range(start, inclusiveEnd+1):
-                df.loc[i, "action"] = fileWithRanges[label]
-        df.to_csv(fileWithRanges[file], index=False)
+                df.loc[i, "action"] = rangeAndLabel[label]
+    df.to_csv(file[0:-4] + "_labeled.csv", index=False)
+    plot_imu_data(df, None, file)
 
 #set_all_actions_to_neutral(".")
 #set_labels_by_range()
-plot_converted(".")
+#plot_converted(".")
+set_labels_by_range()
