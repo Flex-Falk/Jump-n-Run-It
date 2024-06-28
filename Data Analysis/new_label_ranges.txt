@@ -30,3 +30,50 @@ file: "./Datasets/10x Jump, Shoot, Crouch.csv"
 		label: "Crouch_Backward"
 	}
 ]
+
+"""
+Jump x2 J
+Shoot x2 J
+Crouch x2 j
+
+Jump & Shoot J
+Jump & Crouch J
+
+Shoot & Jump
+Shoot & Crouch
+
+Crouch & Jump
+Crouch & Shoot
+file: "./Datasets/Combinations.csv"
+"""
+[
+	{
+		ranges: [(197, 212), (236, 242), (618, 623), (756, 769), (911, 916), (1162, 1174)],
+		label: "Jump_Forward"
+	},
+	{
+		ranges: [(213, 218), (243, 251), (624, 629), (770, 776), (917, 923), (1175, 1179)],
+		label: "Jump_Backward"
+	},
+	{
+		ranges: [(337, 342), (370, 374), (644, 651), (879, 886), (1009, 1015), (1304, 1309)],
+		label: "Shoot_Forward"
+	},
+	{
+		ranges: [(343, 351), (375, 386), (652, 661), (887, 894), (1016, 1026), (1310, 1321)],
+		label: "Shoot_Backward"
+	},
+	{
+		ranges: [(482, 490), (518, 526), (789, 796), (1034, 1041), (1132, 1140), (1272, 1279)],
+		label: "Crouch_Forward"
+	},
+	{
+		ranges: [(491, 500), (527, 537), (797, 809), (1042, 1054), (1141, 1149), (1280, 1290)],
+		label: "Crouch_Backward"
+	}
+]
+
+
+
+
+
