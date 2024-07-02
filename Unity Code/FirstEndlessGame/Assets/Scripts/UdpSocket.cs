@@ -6,6 +6,16 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
+public enum Prediction
+{
+    Neutral,
+    Jump_Forward,
+    Jump_Backward,
+    Shoot_Forward,
+    Shoot_Backward,
+    Crouch_Forward,
+    Crouch_Backward
+}
 
 public class UdpSocket : MonoBehaviour
 {
@@ -46,13 +56,13 @@ public class UdpSocket : MonoBehaviour
             // Initialize (seen in comments window)
             Debug.Log("[UDP] " + "UDP Comms Initialised");
         }
-       
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -89,6 +99,12 @@ public class UdpSocket : MonoBehaviour
         }
     }
 
+
+
+
+    public Prediction lastPrediction = Prediction.Neutral;
+    public Prediction curPrediction = Prediction.Neutral;
+
     private void ReceiveData()
     {
         while (true)
@@ -98,6 +114,42 @@ public class UdpSocket : MonoBehaviour
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] data = client.Receive(ref anyIP);
                 string text = Encoding.UTF8.GetString(data);
+                if (text.Equals("Neutral"))
+                {
+                    lastPrediction = curPrediction;
+                    curPrediction = Prediction.Neutral;
+                }
+                else if (text.Equals("Jump_Forward"))
+                {
+                    lastPrediction = curPrediction;
+                    curPrediction = Prediction.Jump_Forward;
+                }
+                else if (text.Equals("Jump_Backward"))
+                {
+                    lastPrediction = curPrediction;
+                    curPrediction = Prediction.Jump_Backward;
+                }
+                else if (text.Equals("Shoot_Forward"))
+                {
+                    lastPrediction = curPrediction;
+                    curPrediction = Prediction.Shoot_Forward;
+                }
+                else if (text.Equals("Shoot_Forward"))
+                {
+                    lastPrediction = curPrediction;
+                    curPrediction = Prediction.Shoot_Backward;
+                }
+                else if (text.Equals("Crouch_Forward"))
+                {
+                    lastPrediction = curPrediction;
+                    curPrediction = Prediction.Crouch_Forward;
+                }
+                else if (text.Equals("Crouch_Backward"))
+                {
+                    lastPrediction = curPrediction;
+                    curPrediction = Prediction.Crouch_Backward;
+                }
+
                 Debug.Log("[Prediction] " + text);
                 ProcessInput(text);
             }

@@ -7,7 +7,9 @@ public static class InputHandler
 {
     public static Boolean JumpInput()
     {
-        return Input.GetButtonDown("Jump");
+        return Input.GetButtonDown("Jump") 
+            || (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
+                && UdpSocket.Instance.curPrediction == Prediction.Jump_Forward);
     }
     public static Boolean PlayerRunInput()
     {
@@ -30,18 +32,22 @@ public static class InputHandler
 
 
     }
-    public static Boolean RunInput() 
-    { 
+    public static Boolean RunInput()
+    {
         return false;
     }
-    public static bool AttackInput() 
+    public static bool AttackInput()
     {
-        return Input.GetButtonDown("Attack");
+        return Input.GetButtonDown("Attack")
+            || (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
+                    && UdpSocket.Instance.curPrediction == Prediction.Shoot_Forward);
     }
 
-    public static bool CrouchInput() 
+    public static bool CrouchInput()
     {
-        return Input.GetButtonDown("Crouch");
+        return Input.GetButtonDown("Crouch")
+            || (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
+                    && UdpSocket.Instance.curPrediction == Prediction.Crouch_Forward);
     }
-  
+
 }

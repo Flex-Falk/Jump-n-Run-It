@@ -43,7 +43,7 @@ def load_lstm_from_file(model_weights_file, label_encoder_pickle, scalar_pickle)
     scaler = pickle.load(open(scalar_pickle, 'rb'))  # StandardScaler()
 
     # Hyperparameter
-    input_size = 6  # Anzahl der Features
+    input_size = 5  # Anzahl der Features
     hidden_size = 128
     output_size = len(label_encoder.classes_)  # Crouch, Jump, Shoot, Neutral
     num_layers = 2
