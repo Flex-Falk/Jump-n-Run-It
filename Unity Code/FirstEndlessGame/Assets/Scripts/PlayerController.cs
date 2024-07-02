@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float initialSpeed = 3f;
     private float currentSpeed = 0;
-    private float speedUp = 8f;
+    private float speedUp = 4f;
     private float desiredLane = 1; //0:left 1:middle 2:right
     public float laneDistance = 4; //the distance between two lanes
     private Vector3 velocity = Vector3.zero;
