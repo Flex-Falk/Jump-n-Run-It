@@ -74,6 +74,44 @@ file: "./Datasets/Combinations.csv"
 ]
 
 
+"""
+old_merged
+file: "./Datasets/Combinations.csv"
+"""
+[
+	{
+		ranges: [(2622, 2637), (2726, 2740), (2810, 2825)],
+		label: "Jump_Forward"
+	},
+	{
+		ranges: [(2638, 2647), (2741, 2756), (2826, 2841)],
+		label: "Jump_Backward"
+	},
+	{
+		ranges: [(693, 699), (826, 832), (945, 955)],
+		label: "Shoot_Forward"
+	},
+	{
+		ranges: [(700, 708), (833, 841), (956, 956)],
+		label: "Shoot_Backward"
+	},
+	{
+		ranges: [(136, 143), (229, 236), (332, 337), (1228, 1232), (1340, 1346), (1451, 1458)],
+		label: "Crouch_Forward"
+	},
+	{
+		ranges: [(144, 157), (237, 253), (338, 351), (1233, 1245), (1347, 1362), (1459, 1475)],
+		label: "Crouch_Backward"
+	}
+]
+
+
+
+
+
+
+
+
 
 
 

@@ -139,44 +139,46 @@ def plot_converted(folder):
 
 
 
-def set_all_actions_to_neutral(folder):
-    filesToConvert = list_paths(folder, "*.csv")
-    for file in filesToConvert:
-        print(file)
-        df = pd.read_csv(file)
-        df["action"] = "Neutral"
-        plot_imu_data(df, None, file)
+def set_all_actions_to_neutral(file):
+    # filesToConvert = list_paths(folder, "*.csv")
+    #for file in filesToConvert:
+    print(file)
+    df = pd.read_csv(file)
+    df["action"] = "Neutral"
+    df.drop("y", axis=1, inplace=True)
+    df.to_csv("./Datasets/filtered_merged_wrong_labeled.csv", index=False)
+    plot_imu_data(df, None, file)
 
-#set_all_actions_to_neutral("./Datasets")
-
+#set_all_actions_to_neutral("./Datasets/old merged_unlabeled.csv")
+#plot_imu_data(pd.read_csv("./Datasets/filtered_merged_wrong_labeled.csv"), None, "")
 
 def set_labels_by_range():
-    file = "./Datasets/Combinations.csv"
+    file = "./Datasets/filtered_merged_wrong_labeled.csv"
     ranges = "ranges"
     label = "label"
     rangesAndLabels = [
 	{
-		ranges: [(197, 212), (236, 242), (618, 623), (756, 769), (911, 916), (1162, 1174)],
+		ranges: [(2622, 2637), (2726, 2740), (2810, 2825)],
 		label: "Jump_Forward"
 	},
 	{
-		ranges: [(213, 218), (243, 251), (624, 629), (770, 776), (917, 923), (1175, 1179)],
+		ranges: [(2638, 2647), (2741, 2756), (2826, 2841)],
 		label: "Jump_Backward"
 	},
 	{
-		ranges: [(337, 342), (370, 374), (644, 651), (879, 886), (1009, 1015), (1304, 1309)],
+		ranges: [(693, 699), (826, 832), (945, 955)],
 		label: "Shoot_Forward"
 	},
 	{
-		ranges: [(343, 351), (375, 386), (652, 661), (887, 894), (1016, 1026), (1310, 1321)],
+		ranges: [(700, 708), (833, 841), (956, 956)],
 		label: "Shoot_Backward"
 	},
 	{
-		ranges: [(482, 490), (518, 526), (789, 796), (1034, 1041), (1132, 1140), (1272, 1279)],
+		ranges: [(136, 143), (229, 236), (332, 337), (1228, 1232), (1340, 1346), (1451, 1458)],
 		label: "Crouch_Forward"
 	},
 	{
-		ranges: [(491, 500), (527, 537), (797, 809), (1042, 1054), (1141, 1149), (1280, 1290)],
+		ranges: [(144, 157), (237, 253), (338, 351), (1233, 1245), (1347, 1362), (1459, 1475)],
 		label: "Crouch_Backward"
 	}
 ]
