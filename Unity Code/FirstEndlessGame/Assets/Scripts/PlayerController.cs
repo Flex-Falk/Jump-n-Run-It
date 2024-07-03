@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private CapsuleCollider cc;
     private bool isGrounded = true;
+
+    private bool isCurrentlyInAction = false;
     private bool isCrouching = false;
     [SerializeField]
     private float maxSpeed = 6;
@@ -145,9 +147,9 @@ public class PlayerController : MonoBehaviour
         if (InputHandler.JumpInput())
         {
             Debug.Log("[Grounded] " + isGrounded);
-            if (isGrounded | PlayerManager.doubleJumpPowerUp == true)
+            if (isGrounded | PlayerManager.doubleJumpPowerUp == true && isCurrentlyInAction == false)
             {
-                Jump();
+                StartCoroutine(Jump());
                 isGrounded = false;
                 PlayerManager.doubleJumpPowerUp = false;
             }
@@ -216,28 +218,39 @@ public class PlayerController : MonoBehaviour
         desiredLane = lane;
     }
 
-    private void Jump()
+    private IEnumerator Jump()
     {
-        animator.SetBool("isJumping", true);
-        rb.velocity += jumpForce * Vector3.up;
-        audioSource.PlayOneShot(jumpClip);
+        if(isCurrentlyInAction == false && isGrounded == true){
+            isCurrentlyInAction = true;
+            
+            animator.SetBool("isJumping", true);
+            rb.velocity += jumpForce * Vector3.up;
+            audioSource.PlayOneShot(jumpClip);
+            yield return new WaitForSeconds(1f);
+
+            isCurrentlyInAction = false;
+        }
     }
 
     private IEnumerator Crouch()
     {
-        //Aktuell gel�st durch �nderung der H�he
-        audioSource.PlayOneShot(beginCrouchClip);
-        cc.height = 1;
-        yield return new WaitForSeconds(1.5f);
-        cc.height = 2;
-        isCrouching = false;
-        audioSource.PlayOneShot(endCrouchClip);
-        /*var normScale = new Vector3(1f, 1f, 1f);
-        var crouchScale = new Vector3(0.6f, 0.5f, 0.6f);
-        transform.localScale = Vector3.Lerp(transform.localScale, crouchScale, 80 * Time.fixedDeltaTime);
-        yield return new WaitForSeconds(1.5f);
-        transform.localScale = Vector3.Lerp(transform.localScale, normScale, 80 * Time.fixedDeltaTime);
-        */
+        if(isCurrentlyInAction == false){
+            isCurrentlyInAction = true;
+            //Aktuell gel�st durch �nderung der H�he
+            audioSource.PlayOneShot(beginCrouchClip);
+            cc.height = 1;
+            yield return new WaitForSeconds(1.5f);
+            cc.height = 2;
+            isCrouching = false;
+            audioSource.PlayOneShot(endCrouchClip);
+            /*var normScale = new Vector3(1f, 1f, 1f);
+            var crouchScale = new Vector3(0.6f, 0.5f, 0.6f);
+            transform.localScale = Vector3.Lerp(transform.localScale, crouchScale, 80 * Time.fixedDeltaTime);
+            yield return new WaitForSeconds(1.5f);
+            transform.localScale = Vector3.Lerp(transform.localScale, normScale, 80 * Time.fixedDeltaTime);
+            */
+            isCurrentlyInAction = false;
+        }
     }
 
     private void OnCollisionStay()
@@ -277,10 +290,14 @@ public class PlayerController : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("[Action] Shoot");
+        if(isCurrentlyInAction == false){
+            isCurrentlyInAction = true;
+            Debug.Log("[Action] Shoot");
 
-        var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotPrefab.transform.rotation);
-        airShot.GetComponent<Rigidbody>().velocity = airShotSpawnPoint.forward * 20f;
-        audioSource.PlayOneShot(attackClip);
+            var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotPrefab.transform.rotation);
+            airShot.GetComponent<Rigidbody>().velocity = airShotSpawnPoint.forward * 20f;
+            audioSource.PlayOneShot(attackClip);
+            isCurrentlyInAction = false;
+        }
     }
 }
