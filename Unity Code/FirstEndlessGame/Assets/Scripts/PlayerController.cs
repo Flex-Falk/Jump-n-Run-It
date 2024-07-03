@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
         if (InputHandler.AttackInput())
         {
-            Attack();
+            StartCoroutine(Attack());
         }
 
         /*else
@@ -288,15 +288,15 @@ public class PlayerController : MonoBehaviour
         SaveSystem.SaveGyroData(gyroData);
     }
 
-    void Attack()
+    public IEnumerator Attack()
     {
         if(isCurrentlyInAction == false){
             isCurrentlyInAction = true;
             Debug.Log("[Action] Shoot");
-
             var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotPrefab.transform.rotation);
             airShot.GetComponent<Rigidbody>().velocity = airShotSpawnPoint.forward * 20f;
             audioSource.PlayOneShot(attackClip);
+            yield return new WaitForSeconds(0.5f);
             isCurrentlyInAction = false;
         }
     }
