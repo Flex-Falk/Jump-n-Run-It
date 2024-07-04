@@ -1,0 +1,15 @@
+One-Hot-Encoding
+
+t				| t + 1 
+-----------------------------------------------------------------------------------------------------------------------------
+				| Neutral | Crouch_forward | Crouch_backward | Jump_forward | Jump_backward | Shoot_forward | Shoot_backward |
+Neutral			| 1       | 1              | 0               | 1            | 0             | 1             | 0              |
+Crouch_forward 	| 0       | 0              | 1               | 0            | 0             | 0             | 0              |
+Crouch_backward | 1       | 0              | 0               | 0            | 0             | 0             | 0              |
+Jump_forward	| 0       | 0              | 0               | 0            | 1             | 0             | 0              |
+Jump_backward	| 1       | 0              | 0               | 0            | 0             | 0             | 0              |
+Shoot_forward 	| 0       | 0              | 0               | 0            | 0             | 0             | 1              |
+Shoot_backward	| 1       | 0              | 0               | 0            | 0             | 0             | 0              |
+
+# Question can we go from a <>_backward to a <>_forward movement?
+# Note: The row is what we would add to the input vector

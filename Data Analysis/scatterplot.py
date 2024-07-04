@@ -153,7 +153,7 @@ def set_all_actions_to_neutral(file):
 #plot_imu_data(pd.read_csv("./Datasets/filtered_merged_wrong_labeled.csv"), None, "")
 
 def set_labels_by_range():
-    file = "./Datasets/filtered_merged_wrong_labeled.csv"
+    file = "./Datasets/3xCrouch, Shoot, Crouch, Jump_labeled.csv"
     ranges = "ranges"
     label = "label"
     rangesAndLabels = [
@@ -198,7 +198,7 @@ def set_labels_by_range():
         for [start, inclusiveEnd] in rangeAndLabel[ranges]:
             for i in range(start, inclusiveEnd+1):
                 df.loc[i, "action"] = rangeAndLabel[label]
-    df.to_csv(file[0:-4] + "_labeled.csv", index=False)
+    #df.to_csv(file[0:-4] + "_labeled.csv", index=False)
     plot_imu_data(df, None, file)
 
 #set_all_actions_to_neutral(".")
