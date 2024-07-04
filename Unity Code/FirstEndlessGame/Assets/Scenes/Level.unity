@@ -2808,7 +2808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1061774694
 Transform:
   m_ObjectHideFlags: 0
@@ -2831,7 +2831,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061774692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4d9ba0992be8b848b598d6ac0d9094f, type: 3}
   m_Name: 
@@ -2841,6 +2841,8 @@ MonoBehaviour:
   rxPort: 8000
   txPort: 8001
   msgToServer: -24939.0f,4538.0f,4197.0f,-47.376305f,-26.376276f,-4.485165f
+  lastPrediction: 0
+  curPrediction: 0
 --- !u!1 &1081167896
 GameObject:
   m_ObjectHideFlags: 0

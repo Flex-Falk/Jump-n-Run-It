@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,19 @@ public class PlayerController : MonoBehaviour
     private EventDataHook eventDataHook;
     private List<GyroData> gyroData = new List<GyroData>();
 
-    private UdpSocket udpSocket;
+    //private UdpSocket udpSocket;
+    //private float crouch_x = -25000;
+    //private float crouch_yaw = -100;
+    private float crouch_pitch = -35;
+
+    //private float shoot_x = -25000;
+
+    private float shoot_pitch = 100;
+    private float shoot_roll = -100;
+
+    //private float jump_x = 25000;
+    private float jump_roll = 20;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +69,7 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         cc = GetComponent<CapsuleCollider>();
 
-        udpSocket = UdpSocket.Instance;
+        //udpSocket = UdpSocket.Instance;
 
         if (PortDataAccessor.Instance != null && PortDataAccessor.Instance.EventDataHook != null)
         {
@@ -83,7 +96,40 @@ public class PlayerController : MonoBehaviour
             eventDataHook.registerDataHook("IMU", (object sender, DataArrivedEventArgs args) =>
             {
                 Debug.Log("[IMU] " + args.Value);
-                udpSocket.SendData(args.Value);
+                string[] splitValues = args.Value.Split(",");
+                float x = float.Parse(splitValues[0], CultureInfo.InvariantCulture.NumberFormat);
+                float z = float.Parse(splitValues[1], CultureInfo.InvariantCulture.NumberFormat);
+                float yaw = float.Parse(splitValues[2], CultureInfo.InvariantCulture.NumberFormat);
+                float pitch = float.Parse(splitValues[3], CultureInfo.InvariantCulture.NumberFormat);
+                float roll = float.Parse(splitValues[4], CultureInfo.InvariantCulture.NumberFormat);
+                Debug.Log("[parsed] " + x);
+                Debug.Log("[parsed] " +z);
+                Debug.Log("[parsed] " +yaw);
+                Debug.Log("[parsed] " +pitch);
+                Debug.Log("[parsed] " +roll);
+                if (crouch_pitch > pitch
+                    )
+                {
+                    //InputHandler.currentPredicted = Movements.Crouch;
+                    InputHandler.currentPredicted = Movements.Jump;
+                }/*
+                else if (
+                    shoot_roll > roll
+                    && shoot_pitch < pitch
+                    )
+                {
+                    InputHandler.currentPredicted = Movements.Shoot;
+                } else if(
+                    jump_roll < roll
+                ){
+                    InputHandler.currentPredicted = Movements.Jump;
+                }*/ else {
+                    InputHandler.currentPredicted = Movements.Neutral;
+                }
+
+                Debug.Log("[Prediction] " +InputHandler.currentPredicted);
+
+                //udpSocket.SendData(args.Value);
                 gyroData.Add(new GyroData(args.Value));
             });
             /*
@@ -220,9 +266,10 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Jump()
     {
-        if(isCurrentlyInAction == false && isGrounded == true){
+        if (isCurrentlyInAction == false && isGrounded == true)
+        {
             isCurrentlyInAction = true;
-            
+
             animator.SetBool("isJumping", true);
             rb.velocity += jumpForce * Vector3.up;
             audioSource.PlayOneShot(jumpClip);
@@ -234,7 +281,8 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Crouch()
     {
-        if(isCurrentlyInAction == false){
+        if (isCurrentlyInAction == false)
+        {
             isCurrentlyInAction = true;
             //Aktuell gel�st durch �nderung der H�he
             audioSource.PlayOneShot(beginCrouchClip);
@@ -290,7 +338,8 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Attack()
     {
-        if(isCurrentlyInAction == false){
+        if (isCurrentlyInAction == false)
+        {
             isCurrentlyInAction = true;
             Debug.Log("[Action] Shoot");
             var airShot = Instantiate(airShotPrefab, airShotSpawnPoint.position, airShotPrefab.transform.rotation);

@@ -3,13 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Movements
+{
+    Neutral,
+    Jump,
+    Crouch,
+    Shoot
+}
 public static class InputHandler
 {
+
+    public static Movements lastPredicted = Movements.Neutral;
+    public static Movements currentPredicted = Movements.Neutral;
+
     public static Boolean JumpInput()
     {
         return Input.GetButtonDown("Jump") 
+            || currentPredicted == Movements.Jump;
+            /*|| (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
+                && UdpSocket.Instance.curPrediction == Prediction.Jump_Forward)
             || (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
-                && UdpSocket.Instance.curPrediction == Prediction.Jump_Forward);
+                && UdpSocket.Instance.curPrediction == Prediction.Jump_Backward);*/
     }
     public static Boolean PlayerRunInput()
     {
@@ -39,15 +53,18 @@ public static class InputHandler
     public static bool AttackInput()
     {
         return Input.GetButtonDown("Attack")
-            || (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
-                    && UdpSocket.Instance.curPrediction == Prediction.Shoot_Forward);
+            || currentPredicted == Movements.Shoot;
+            /*|| (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
+                    && UdpSocket.Instance.curPrediction == Prediction.Shoot_Forward);*/
     }
 
     public static bool CrouchInput()
     {
         return Input.GetButtonDown("Crouch")
-            || (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
-                    && UdpSocket.Instance.curPrediction == Prediction.Crouch_Forward);
+            || currentPredicted == Movements.Crouch;
+
+            /*|| (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
+                    && UdpSocket.Instance.curPrediction == Prediction.Crouch_Forward);*/
     }
 
 }
