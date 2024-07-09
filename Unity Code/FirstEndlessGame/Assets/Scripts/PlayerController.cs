@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     public static event Action<bool> isGameOver;
 
     private EventDataHook eventDataHook;
-    private List<GyroData> gyroData = new List<GyroData>();
+    //private List<GyroData> gyroData = new List<GyroData>();
 
     //private UdpSocket udpSocket;
     //private float crouch_x = -25000;
@@ -103,14 +103,15 @@ public class PlayerController : MonoBehaviour
                 float pitch = float.Parse(splitValues[3], CultureInfo.InvariantCulture.NumberFormat);
                 float roll = float.Parse(splitValues[4], CultureInfo.InvariantCulture.NumberFormat);
                 Debug.Log("[parsed] " + x);
-                Debug.Log("[parsed] " +z);
-                Debug.Log("[parsed] " +yaw);
-                Debug.Log("[parsed] " +pitch);
-                Debug.Log("[parsed] " +roll);
-                if (crouch_pitch > pitch
-                    )
+                Debug.Log("[parsed] " + z);
+                Debug.Log("[parsed] " + yaw);
+                Debug.Log("[parsed] " + pitch);
+                Debug.Log("[parsed] " + roll);
+                if (crouch_pitch > pitch && InputHandler.currentPredicted == Movements.Neutral)
                 {
                     //InputHandler.currentPredicted = Movements.Crouch;
+
+                    InputHandler.lastPredicted = Movements.Neutral;
                     InputHandler.currentPredicted = Movements.Jump;
                 }/*
                 else if (
@@ -123,14 +124,15 @@ public class PlayerController : MonoBehaviour
                     jump_roll < roll
                 ){
                     InputHandler.currentPredicted = Movements.Jump;
-                }*/ else {
+                }*/ else if (crouch_pitch <= pitch){
+                    InputHandler.lastPredicted = InputHandler.currentPredicted;
                     InputHandler.currentPredicted = Movements.Neutral;
                 }
 
                 Debug.Log("[Prediction] " +InputHandler.currentPredicted);
 
                 //udpSocket.SendData(args.Value);
-                gyroData.Add(new GyroData(args.Value));
+                //gyroData.Add(new GyroData(args.Value));
             });
             /*
             eventDataHook.registerDataHook("Accel", (object sender, DataArrivedEventArgs args) =>
@@ -315,7 +317,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Obstacle" || collision.transform.tag == "Breakable")
+        if (collision.transform.tag == "Obstacle"/* || collision.transform.tag == "Breakable"*/)
         {
             if (!PlayerManager.Instance.HitShield())
             {
@@ -328,12 +330,20 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isJumping", false);
         }
+        if (collision.transform.tag == "Breakable")
+        {
+            PlayerManager.Instance.Crate(collision.gameObject.transform);
+            Destroy(collision.gameObject);
+            //Destroy(gameObject);
+            //gameObject.SetActive(false);
+
+        }
     }
     public void DisableControls()
     {
         this.enabled = false;
         audioSource.PlayOneShot(deathClip);
-        SaveSystem.SaveGyroData(gyroData);
+        //SaveSystem.SaveGyroData(gyroData);
     }
 
     public IEnumerator Attack()
