@@ -12,18 +12,23 @@ public enum Movements
 }
 public static class InputHandler
 {
-
+    /*
     public static Movements lastPredicted = Movements.Neutral;
     public static Movements currentPredicted = Movements.Neutral;
-
+    */
+    public static Prediction lastPredicted = Prediction.Neutral;
+    public static Prediction currentPredicted = Prediction.Neutral;
     public static Boolean JumpInput()
     {
-        return Input.GetButtonDown("Jump") 
-            || currentPredicted == Movements.Jump;
-            /*|| (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
+        return currentPredicted == Prediction.Jump_Backward;
+            /*
+            (UdpSocket.Instance.lastPrediction == Prediction.Neutral
                 && UdpSocket.Instance.curPrediction == Prediction.Jump_Forward)
-            || (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
-                && UdpSocket.Instance.curPrediction == Prediction.Jump_Backward);*/
+            || (UdpSocket.Instance.lastPrediction == Prediction.Neutral
+                && UdpSocket.Instance.curPrediction == Prediction.Jump_Backward);
+            Input.GetButtonDown("Jump") 
+            || currentPredicted == Movements.Jump;
+            */
     }
     public static Boolean PlayerRunInput()
     {
@@ -52,19 +57,25 @@ public static class InputHandler
     }
     public static bool AttackInput()
     {
-        return Input.GetButtonDown("Attack")
-            || currentPredicted == Movements.Shoot;
-            /*|| (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
-                    && UdpSocket.Instance.curPrediction == Prediction.Shoot_Forward);*/
+        return currentPredicted == Prediction.Shoot_Backward;
+        
+        /*
+        (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
+            && UdpSocket.Instance.curPrediction == Prediction.Shoot_Forward);
+        Input.GetButtonDown("Attack")
+        || currentPredicted == Movements.Shoot;
+        */
     }
 
     public static bool CrouchInput()
     {
-        return Input.GetButtonDown("Crouch")
+        return currentPredicted == Prediction.Crouch_Backward;
+            /*
+            (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
+                && UdpSocket.Instance.curPrediction == Prediction.Crouch_Forward);
+            Input.GetButtonDown("Crouch")
             || currentPredicted == Movements.Crouch;
-
-            /*|| (UdpSocket.Instance.lastPrediction == Prediction.Neutral 
-                    && UdpSocket.Instance.curPrediction == Prediction.Crouch_Forward);*/
+            */
     }
 
 }
