@@ -61,8 +61,6 @@ public class PlayerController : MonoBehaviour
     //private float jump_x = 25000;
     private float jump_roll = 20;
 
-    private ThresholdPrediction thresholdPrediction = new ThresholdPrediction();
-    private float[] latestPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -70,8 +68,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         cc = GetComponent<CapsuleCollider>();
-
-        // thresholdPrediction.Test();
 
         //udpSocket = UdpSocket.Instance;
 
@@ -106,29 +102,17 @@ public class PlayerController : MonoBehaviour
                 float yaw = float.Parse(splitValues[2], CultureInfo.InvariantCulture.NumberFormat);
                 float pitch = float.Parse(splitValues[3], CultureInfo.InvariantCulture.NumberFormat);
                 float roll = float.Parse(splitValues[4], CultureInfo.InvariantCulture.NumberFormat);
-                float[] grad = thresholdPrediction.CalcGradient(
-                    latestPoint,
-                    new float[] { z, yaw, pitch, roll }
-                    );
-                Prediction prediction = thresholdPrediction.Predict(grad);
-                //
-                // COMMENT THIS LINE (115) BELOW TO REMOVE PREDICTIONS
-                //
-                InputHandler.currentPredicted = prediction;
-
-                latestPoint = new float[] { z, yaw, pitch, roll };
                 Debug.Log("[parsed] " + x);
-                Debug.Log("[parsed] " + z);
-                Debug.Log("[parsed] " + yaw);
-                Debug.Log("[parsed] " + pitch);
-                Debug.Log("[parsed] " + roll);
-                /*
+                Debug.Log("[parsed] " +z);
+                Debug.Log("[parsed] " +yaw);
+                Debug.Log("[parsed] " +pitch);
+                Debug.Log("[parsed] " +roll);
                 if (crouch_pitch > pitch
                     )
                 {
                     //InputHandler.currentPredicted = Movements.Crouch;
                     InputHandler.currentPredicted = Movements.Jump;
-                }
+                }/*
                 else if (
                     shoot_roll > roll
                     && shoot_pitch < pitch
@@ -139,14 +123,14 @@ public class PlayerController : MonoBehaviour
                     jump_roll < roll
                 ){
                     InputHandler.currentPredicted = Movements.Jump;
-                } else {
+                }*/ else {
                     InputHandler.currentPredicted = Movements.Neutral;
                 }
 
                 Debug.Log("[Prediction] " +InputHandler.currentPredicted);
+
                 //udpSocket.SendData(args.Value);
                 gyroData.Add(new GyroData(args.Value));
-                */
             });
             /*
             eventDataHook.registerDataHook("Accel", (object sender, DataArrivedEventArgs args) =>
