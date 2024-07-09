@@ -1,0 +1,30 @@
+1)
+init std * 2 from :
+bandpass:
+x        1.392059e+08
+z        6.689037e+06
+yaw      2.022568e+01
+pitch    4.468770e+00
+roll     1.768963e+01
+dtype: float64
+
+2)
+between two point calculate +- gradient ** 2:
+for key in numeric_keys: # ["x", ...]
+    row[key] = ((row[key] - latest_row[key])/abs(row[key] - latest_row[key])) *  (row[key] - latest_row[key]) ** 2
+
+3)
+check based on thresholds:
+	input ["z", "yaw", "pitch", "roll"] -> label
+	
+	when (input):
+		"Jump_Forward" -> (
+			bandpass.x < abs(x) && x > 0
+			&& bandpass.yaw < abs(yaw) && yaw > 0 && yaw < 80
+			&& bandpass.roll < abs(roll) && roll > 0 && roll < 250 
+		)
+		"Jump_Backward" -> (
+			last_predicted = "Jump_Forward
+			&& bandpass.x < abs(x) && x < 0
+			&& bandpass.yaw < abs(yaw) && yaw < 0 && yaw > -90
+		)
