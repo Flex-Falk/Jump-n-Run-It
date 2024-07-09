@@ -194,12 +194,10 @@ public class PlayerController : MonoBehaviour
 
         if (InputHandler.JumpInput())
         {
-            Debug.Log("[Grounded] " + isGrounded);
-            if (isGrounded | PlayerManager.doubleJumpPowerUp == true && isCurrentlyInAction == false)
+           // Debug.Log("[Grounded] " + isGrounded);
+            if ((isGrounded && !isCurrentlyInAction) || (!isGrounded && PlayerManager.doubleJumpPowerUp))
             {
                 StartCoroutine(Jump());
-                isGrounded = false;
-                PlayerManager.doubleJumpPowerUp = false;
             }
         }
 
@@ -268,17 +266,26 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Jump()
     {
-        if (isCurrentlyInAction == false && isGrounded == true)
+        isCurrentlyInAction = true;
+
+        animator.SetBool("isJumping", true);
+        rb.velocity += jumpForce * Vector3.up;
+        audioSource.PlayOneShot(jumpClip);
+
+        // Reset double jump power-up only if used
+        if (!isGrounded) 
         {
-            isCurrentlyInAction = true;
-
-            animator.SetBool("isJumping", true);
-            rb.velocity += jumpForce * Vector3.up;
-            audioSource.PlayOneShot(jumpClip);
+            yield return new WaitForSeconds(0f);
+            PlayerManager.doubleJumpPowerUp = false;
+            isGrounded = false;
+            isCurrentlyInAction = false;
+        } else{
             yield return new WaitForSeconds(1f);
-
+            isGrounded = false;
             isCurrentlyInAction = false;
         }
+
+
     }
 
     private IEnumerator Crouch()
