@@ -150,7 +150,7 @@ def set_all_actions_to_neutral(file):
     plot_imu_data(df, None, file)
 
 #set_all_actions_to_neutral("./Datasets/old merged_unlabeled.csv")
-plot_imu_data(pd.read_csv("./Datasets/Rebalanced_10x Jump, Shoot, Crouch_labeled.csv"), None, "")
+#plot_imu_data(pd.read_csv("./Datasets/filtered_merged_wrong_labeled.csv"), None, "")
 
 def set_labels_by_range():
     file = "./Datasets/3xCrouch, Shoot, Crouch, Jump_labeled.csv"
@@ -204,5 +204,5 @@ def set_labels_by_range():
 #set_all_actions_to_neutral(".")
 #set_labels_by_range()
 #plot_converted(".")
-#set_labels_by_range()
+set_labels_by_range()
 #plot_imu_data(pd.read_csv("./Datasets/Combinations.csv"), None, "./Datasets/Combinations.csv")
