@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +22,7 @@ public class GyroData
         value = v;
     }
 }
+
 public static class SaveSystem
 {
 
@@ -56,4 +57,4 @@ public static class SaveSystem
         Debug.Log("[Save] " + Application.persistentDataPath);
     }
 
-}
+}*/

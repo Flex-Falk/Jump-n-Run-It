@@ -13,7 +13,7 @@ public class Crate : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "AirShot")
+        if (collision.gameObject.tag == "AirShot" || collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
             audioSource.PlayOneShot(breakClip);
