@@ -6,7 +6,6 @@ import matplotlib as mpl
 import os
 import fnmatch
 import mplcursors
-import math
 
 def list_paths(folder='.', pattern='*', case_sensitive=False, subfolders=False):
     """Return a list of the file paths matching the pattern in the specified
@@ -35,7 +34,6 @@ def plot_imu_data(df, df_root, title):
     for ax, y_var in zip(axes.flatten(), y_vars):
         sc = sns.scatterplot(data=df, x=range(0, df.shape[0]), y=y_var, ax=ax, hue="action")
         ax.set_title(f'index vs {y_var}')
-        ax.get_legend().remove()
         cursor = mplcursors.cursor(sc)
 
         @cursor.connect("add")
@@ -49,76 +47,9 @@ def plot_imu_data(df, df_root, title):
     plt.show()
 
     #save(df_root, index_collection, title)
-latest_row = None
-def band_pass_by_stc():
-    df = pd.read_csv("./Datasets/10x Jump, Shoot, Crouch_labeled.csv") #.iloc[0:10]
-    numeric_keys = ["x", "z", "yaw", "pitch", "roll"]
-
-    def gradient(row):
-        global latest_row
-        save_row = row.copy()
-        if latest_row is None:
-            for key in numeric_keys:
-                row[key] = 0.0
-        else:
-            for key in numeric_keys:
-                # print(key, row[key], "-", latest_row[key])
-                row[key] = ((row[key] - latest_row[key])/abs(row[key] - latest_row[key])) *  (row[key] - latest_row[key]) ** 2
-        latest_row = save_row
-        return row
-
-    df = df.apply(gradient, axis=1)
-    df_only_neutral = df[df["action"] == "Neutral"]
-    df_numeric = df_only_neutral[["x", "z", "yaw", "pitch", "roll"]]
-    glob_std = df_numeric.std()
-    print(glob_std)
-    def band_pass(row):
-        for key in glob_std.keys():
-            if abs(row[key]) < glob_std[key] * 2:
-                row[key] = 0
-        return row
-
-    df = df.apply(band_pass, axis=1)
-    # df_band_numeric = df[["x", "z", "yaw", "pitch", "roll"]]
-    #df_normilized = (df_band_numeric/ df_band_numeric.sum())
-    #df_normilized["action"] = df["action"]
-    #print(df_normilized["action"].value_counts())
-    # df["action"] = "neutral"
-    plot_imu_data(df, None, "bla")
-
-band_pass_by_stc()
-
-def relabel():
-
-    def apply_regions(row, reg):
-        print(row.name)
-        if(reg[2] < row.name and row.name < reg[3]):
-            if row["roll"] > 0:
-                row["action"] = reg[0]
-            elif row["roll"] < 0:
-                row["action"] = reg[1]
-        return row
-
-    regions = [ ("Jump_Forward", "Jump_Backward", 0, 1205),
-                ("Shoot_Forward", "Shoot_Backward", 1206, 2254),
-                ("Crouch_Backward", "Crouch_Forward", 2255, 3400)]
-    df = pd.read_csv("./Datasets/10x Jump, Shoot, Crouch_labeled.csv")
-    for region in regions:
-        df = df.apply(lambda row: apply_regions(row, region))
-
-    df.to_csv("")
-
-"""
-first use data in after filter and band_pass (remove outlier)
-split data into each label
-remove neutral parts
-then reverse and only keep neutral to get real noise
-train LSTM to classifiy data trained on both datasets (rebalance)
-"""
-
 
 def clear_action(df):
-    df["action"] = "Neutral"
+    df["Action"] = "Neutral"
 
 def plot_each_seq():
     files = list_paths(folder=".", pattern='*.csv')
@@ -219,7 +150,7 @@ def set_all_actions_to_neutral(file):
     plot_imu_data(df, None, file)
 
 #set_all_actions_to_neutral("./Datasets/old merged_unlabeled.csv")
-#plot_imu_data(pd.read_csv("./Datasets/Rebalanced_10x Jump, Shoot, Crouch_labeled.csv"), None, "")
+plot_imu_data(pd.read_csv("./Datasets/Rebalanced_10x Jump, Shoot, Crouch_labeled.csv"), None, "")
 
 def set_labels_by_range():
     file = "./Datasets/3xCrouch, Shoot, Crouch, Jump_labeled.csv"
